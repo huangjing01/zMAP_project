@@ -1,0 +1,1 @@
+/home/shao/zMap/app/templates/input_file/reverse_zMAP/association_z_statistic_with_mutation_data/results_association_z_statistic_with_mutation.txt

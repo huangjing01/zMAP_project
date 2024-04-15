@@ -1,0 +1,170 @@
+Sample_id	Histology	Degree	Stage	Lymph_node	Abnormal_SCC	Tumor_size_cm	Age
+TB92_1	Cervical Squamous Cell Carcinoma	Grade3	I	No	No	3.4	52.0
+NB92_2	Normal	Grade3	I	No	No	3.4	52.0
+TN35_1	Cervical Adenocarcinoma	Grade1&2	III/IV	Yes	No	4.0	34.0
+TN28	Cervical Squamous Cell Carcinoma	Grade3	III/IV	Yes	Yes	4.3	48.0
+TB124	Cervical Squamous Cell Carcinoma	Grade3	III/IV	Yes	Yes	5.4	53.0
+TB69	Cervical Squamous Cell Carcinoma	Grade1&2	III/IV	Yes	Yes	7.4	38.0
+TB115_1	Cervical Squamous Cell Carcinoma	Grade3	I	No	No	1.9	52.0
+NB115_2	Normal	Grade3	I	No	No	1.9	52.0
+TB42	Cervical Adenocarcinoma	Grade3	II	No	No	3.0	61.0
+TB59	Cervical Squamous Cell Carcinoma	Grade1&2	III/IV	Yes	Yes	4.1	61.0
+TB40	Cervical Squamous Cell Carcinoma	Grade3	III/IV	No	No	4.6	58.0
+TB47	Cervical Squamous Cell Carcinoma	Grade1&2	III/IV	Yes	No	4.5	52.0
+TB12	Cervical Adenocarcinoma	Grade1&2	I	No	No	4.1	46.0
+TB74	Cervical Squamous Cell Carcinoma	Grade3	III/IV	Yes	No	1.7	33.0
+TB49	Cervical Squamous Cell Carcinoma	Grade3	II	No	Yes	3.8	34.0
+TB145	Cervical Squamous Cell Carcinoma	Grade3	III/IV	Yes	No	3.7	59.0
+TB133	Cervical Squamous Cell Carcinoma	Grade1&2	I	No	No	1.5	57.0
+TB76	Cervical Adenocarcinoma	Grade1&2	III/IV	No	No	4.1	49.0
+TN17	Cervical Squamous Cell Carcinoma	Grade1&2	II	No	Yes	3.8	67.0
+TB39	Cervical Squamous Cell Carcinoma	Grade1&2	II	No	No	1.6	65.0
+TB85_1	Cervical Adenocarcinoma	Grade1&2	I	No	No	2.5	35.0
+NB85_2	Normal	Grade1&2	I	No	No	2.5	35.0
+TB24	Cervical Squamous Cell Carcinoma	Grade3	III/IV	Yes	Yes	3.8	38.0
+TB28	Cervical Squamous Cell Carcinoma	Grade3	I	No	Yes	4.2	38.0
+TB52	Cervical Squamous Cell Carcinoma	Grade1&2	III/IV	Yes	Yes	3.3	54.0
+TB159	Cervical Squamous Cell Carcinoma	Grade3	I	No	No	3.1	52.0
+TB100_1	Cervical Squamous Cell Carcinoma	Grade3	II	No	Yes	3.0	37.0
+TB62	Cervical Squamous Cell Carcinoma	Grade3	II	No	Yes	4.5	62.0
+TB106_1	Adenosquamous	Grade3	II	No	No	4.5	43.0
+NB106_2	Normal	Grade3	II	No	No	4.5	43.0
+TB4	Cervical Squamous Cell Carcinoma	Grade1&2	III/IV	No	Yes	4.7	47.0
+TB63	Cervical Adenocarcinoma	Grade1&2	III/IV	Yes	No	4.8	50.0
+TB1	Cervical Squamous Cell Carcinoma	Grade1&2	II	No	Yes	5.4	73.0
+TN10	Cervical Squamous Cell Carcinoma	Grade1&2	III/IV	No	No	2.1	55.0
+TB105_1	Cervical Squamous Cell Carcinoma	Grade1&2	III/IV	Yes	Yes	2.5	31.0
+NB105_2	Normal	Grade1&2	III/IV	Yes	Yes	2.5	31.0
+TB32	Cervical Squamous Cell Carcinoma	Grade3	I	No	Yes	3.5	38.0
+TB137_1	Cervical Squamous Cell Carcinoma	Grade3	III/IV	Yes	Yes	7.0	44.0
+NB137_2	Normal	Grade3	III/IV	Yes	Yes	7.0	44.0
+TB80	Cervical Squamous Cell Carcinoma	Grade1&2	II	No	Yes	4.5	51.0
+TN33_1	Cervical Adenocarcinoma	Grade3	I	No	No	3.5	34.0
+NN33_2	Normal	Grade3	I	No	No	3.5	34.0
+TB88_1	Cervical Squamous Cell Carcinoma	Grade3	III/IV	Yes	Yes	3.8	35.0
+NB88_2	Normal	Grade3	III/IV	Yes	Yes	3.8	35.0
+TN31	Cervical Adenocarcinoma	Grade3	II	No	No	5.1	
+TB46	Cervical Squamous Cell Carcinoma	Grade3	III/IV	Yes	Yes	6.7	65.0
+TB38	Cervical Adenocarcinoma	Grade3	III/IV	Yes	No	4.7	54.0
+TB156	Adenosquamous	Grade3	I	No	No	4.4	56.0
+TB84	Cervical Squamous Cell Carcinoma	Grade3	III/IV	No	Yes	3.4	61.0
+TB160	Cervical Squamous Cell Carcinoma	Grade3	III/IV	Yes	No	5.0	63.0
+TB102_1	Cervical Squamous Cell Carcinoma	Grade1&2	I	No	No	2.7	44.0
+NB102_2	Normal	Grade1&2	I	No	No	2.7	44.0
+TB82	Cervical Squamous Cell Carcinoma	Grade1&2	I	No	Yes	3.4	52.0
+TB53	Cervical Adenocarcinoma	Grade3	II	No	No	4.7	58.0
+TB104_1	Cervical Adenocarcinoma	Grade1&2	I	No	No	2.3	50.0
+NB104_2	Normal	Grade1&2	I	No	No	2.3	50.0
+TB41	Cervical Squamous Cell Carcinoma	Grade1&2	I	No	No	4.7	53.0
+TN15	Cervical Squamous Cell Carcinoma	Grade1&2	II	No	Yes	4.0	54.0
+TB71	Cervical Squamous Cell Carcinoma	Grade1&2	III/IV	Yes	No	2.8	63.0
+TB33	Cervical Squamous Cell Carcinoma	Grade3	I	No	Yes	3.3	38.0
+TB78	Cervical Squamous Cell Carcinoma	Grade1&2	I	No	Yes	3.2	55.0
+TB31	Cervical Small Cell Carcinoma	Grade3	I	No	No	1.4	56.0
+TB147	Cervical Squamous Cell Carcinoma	Grade1&2	II	No	Yes	2.7	70.0
+TN26	Cervical Squamous Cell Carcinoma	Grade3	III/IV	Yes	No	2.3	56.0
+TB126	Cervical Squamous Cell Carcinoma	Grade1&2	III/IV	Yes	Yes	5.3	43.0
+TB141_1	Cervical Squamous Cell Carcinoma	Grade3	I	No	Yes	4.9	48.0
+TB110_1	Other	Grade3	II	No	Yes	3.0	63.0
+NB110_2	Normal	Grade3	II	No	Yes	3.0	63.0
+TB138_1	Other	Grade1&2	I	No	No	2.0	36.0
+NB138_2	Normal	Grade1&2	I	No	No	2.0	36.0
+TN12	Cervical Squamous Cell Carcinoma	Grade1&2	I	No	Yes	2.3	52.0
+TB99_1	Cervical Squamous Cell Carcinoma	Grade1&2	III/IV	Yes	Yes	6.4	55.0
+TB81	Cervical Squamous Cell Carcinoma	Grade1&2	III/IV	No	Yes	4.1	63.0
+TB89_1	Cervical Squamous Cell Carcinoma	Grade3	I	No	No	3.1	57.0
+NB89_2	Normal	Grade3	I	No	No	3.1	57.0
+TB113_1	Cervical Adenocarcinoma	Grade3	I	No	No	3.7	51.0
+NB113_2	Normal	Grade3	I	No	No	3.7	51.0
+TB146	Cervical Squamous Cell Carcinoma	Grade1&2	III/IV	Yes	Yes	8.1	65.0
+TB153	Cervical Squamous Cell Carcinoma	Grade1&2	II	No	Yes	4.2	66.0
+TB61	Cervical Squamous Cell Carcinoma	Grade3	II	No	No	3.4	67.0
+TB96_1	Cervical Squamous Cell Carcinoma	Grade3	II	No	No	2.4	48.0
+NB96_2	Normal	Grade3	II	No	No	2.4	48.0
+NB142_2	Normal	Grade3	I	No	No	2.3	31.0
+TB117	Cervical Squamous Cell Carcinoma	Grade3	III/IV	Yes	Yes	7.2	57.0
+TB72	Cervical Squamous Cell Carcinoma	Grade1&2	III/IV	No	Yes	3.3	75.0
+NB112_2	Normal	Grade1&2	I	No	No	1.2	50.0
+TB149	Cervical Squamous Cell Carcinoma	Grade3	III/IV	Yes	Yes	6.0	46.0
+TB130	Cervical Squamous Cell Carcinoma	Grade1&2	III/IV	Yes	Yes	5.9	48.0
+TB43	Cervical Squamous Cell Carcinoma	Grade1&2	III/IV	Yes	Yes	3.3	52.0
+TB45	Cervical Squamous Cell Carcinoma	Grade1&2	III/IV	No	Yes	5.8	41.0
+TB90_1	Cervical Adenocarcinoma	Grade3	I	No	No	1.1	54.0
+NB90_2	Normal	Grade3	I	No	No	1.1	54.0
+TB86_1	Cervical Squamous Cell Carcinoma	Grade3	II	No	No	2.5	47.0
+NB86_2	Normal	Grade3	II	No	No	2.5	47.0
+TB155	Cervical Squamous Cell Carcinoma	Grade1&2	II	No	Yes	2.2	53.0
+TB108_1	Cervical Squamous Cell Carcinoma	Grade3	I	No	No	1.3	49.0
+NB108_2	Normal	Grade3	I	No	No	1.3	49.0
+TB152	Cervical Squamous Cell Carcinoma	Grade1&2	III/IV	Yes	Yes	5.9	62.0
+TB3	Cervical Squamous Cell Carcinoma	Grade1&2	II	No	Yes	3.5	60.0
+NB109_2	Normal	Grade1&2	I	No	Yes	3.3	62.0
+TB109_1	Cervical Squamous Cell Carcinoma	Grade1&2	I	No	Yes	3.3	62.0
+TB64	Cervical Squamous Cell Carcinoma	Grade3	II	No	No	3.2	57.0
+TB123	Cervical Squamous Cell Carcinoma	Grade1&2	I	No	Yes	2.6	38.0
+TB158	Cervical Squamous Cell Carcinoma	Grade3	I	No	Yes	3.6	70.0
+TB94_1	Cervical Squamous Cell Carcinoma	Grade3	I	No	Yes	4.3	58.0
+NB94_2	Normal	Grade3	I	No	Yes	4.3	58.0
+TB23	Cervical Squamous Cell Carcinoma	Grade1&2	III/IV	Yes	Yes	3.8	55.0
+TB93_1	Cervical Squamous Cell Carcinoma	Grade3	I	No	Yes	2.7	59.0
+NB93_2	Normal	Grade3	I	No	Yes	2.7	59.0
+TB58	Cervical Squamous Cell Carcinoma	Grade1&2	II	No	No	3.8	59.0
+TB135	Cervical Squamous Cell Carcinoma	Grade3	III/IV	Yes	Yes	5.6	67.0
+TB150	Cervical Squamous Cell Carcinoma	Grade1&2	III/IV	Yes	Yes	5.5	34.0
+TB75	Cervical Adenocarcinoma	Grade1&2	I	No	No	1.9	52.0
+TB26	Cervical Squamous Cell Carcinoma	Grade1&2	II	No	Yes	3.5	67.0
+TB103_1	Cervical Small Cell Carcinoma	Grade3	I	No	No	1.0	40.0
+NB103_2	Normal	Grade3	I	No	No	1.0	40.0
+TB27	Cervical Squamous Cell Carcinoma	Grade3	III/IV	Yes	Yes	3.7	68.0
+TB111_1	Cervical Squamous Cell Carcinoma	Grade3	I	No	Yes	3.5	50.0
+NB111_2	Normal	Grade3	I	No	Yes	3.5	50.0
+TN27	Cervical Squamous Cell Carcinoma	Grade1&2	II	No	Yes	4.7	50.0
+TB116	Cervical Squamous Cell Carcinoma	Grade3	III/IV	Yes	Yes	5.4	49.0
+TB162	Cervical Squamous Cell Carcinoma	Grade1&2	III/IV	Yes	Yes	2.1	56.0
+TB114_1	Cervical Squamous Cell Carcinoma	Grade3	I	No	No	3.2	44.0
+TN9	Cervical Squamous Cell Carcinoma	Grade1&2	II	No	Yes	2.7	69.0
+TB134	Cervical Squamous Cell Carcinoma	Grade1&2	III/IV	Yes	Yes	3.5	66.0
+TB97_1	Cervical Squamous Cell Carcinoma	Grade3	II	No	No	6.9	49.0
+NB97_2	Normal	Grade3	II	No	No	6.9	49.0
+TB144	Cervical Squamous Cell Carcinoma	Grade1&2	II	No	Yes	5.3	64.0
+TB8	Cervical Squamous Cell Carcinoma	Grade3	III/IV	No	Yes	6.2	67.0
+TB48	Cervical Squamous Cell Carcinoma	Grade1&2	II	No	Yes	3.9	60.0
+TB50	Cervical Adenocarcinoma	Grade3	III/IV	Yes	No	6.6	55.0
+TB143	Cervical Squamous Cell Carcinoma	Grade1&2	I	No	Yes	3.2	56.0
+TB107_1	Cervical Small Cell Carcinoma	Grade3	II	No	No	1.7	55.0
+NB107_2	Normal	Grade3	II	No	No	1.7	55.0
+TN34_1	Cervical Squamous Cell Carcinoma	Grade3	III/IV	Yes	Yes	3.8	63.0
+NN34_2	Normal	Grade3	III/IV	Yes	Yes	3.8	63.0
+TB65	Cervical Squamous Cell Carcinoma	Grade3	III/IV	Yes	Yes	6.0	35.0
+TB91_1	Cervical Squamous Cell Carcinoma	Grade1&2	III/IV	Yes	Yes	6.2	40.0
+NB91_2	Normal	Grade1&2	III/IV	Yes	Yes	6.2	40.0
+TB36	Cervical Squamous Cell Carcinoma	Grade3	III/IV	Yes	No	1.8	42.0
+TB98_1	Cervical Squamous Cell Carcinoma	Grade1&2	I	No	No	2.2	57.0
+TB17	Cervical Squamous Cell Carcinoma	Grade1&2	III/IV	Yes	Yes	7.6	55.0
+TN7	Cervical Adenocarcinoma	Grade3	II	No	No	3.8	44.0
+TB154	Cervical Adenocarcinoma	Grade3	I	No	No	4.5	55.0
+TB101_1	Cervical Small Cell Carcinoma	Grade3	I	No	No	2.5	63.0
+NB101_2	Normal	Grade3	I	No	No	2.5	63.0
+TB60	Cervical Squamous Cell Carcinoma	Grade1&2	II	No		6.1	67.0
+TB119	Cervical Squamous Cell Carcinoma	Grade1&2	II	No	Yes	3.3	61.0
+TB87_1	Cervical Adenocarcinoma	Grade3	III/IV	Yes	No	4.0	47.0
+TB121	Cervical Squamous Cell Carcinoma	Grade3	II	No	Yes	3.4	62.0
+TB6	Cervical Squamous Cell Carcinoma	Grade3	III/IV	Yes	Yes	3.5	59.0
+NB139_2	Normal	Grade3	II	No	No	3.0	56.0
+TB2	Cervical Squamous Cell Carcinoma	Grade3	II	No	No	3.7	65.0
+TB151	Cervical Squamous Cell Carcinoma	Grade3	II	No	Yes	4.2	49.0
+TB118	Cervical Squamous Cell Carcinoma	Grade1&2	II	No	No	1.5	75.0
+TB51	Cervical Squamous Cell Carcinoma	Grade3	I	No	No	7.0	33.0
+TB161	Cervical Squamous Cell Carcinoma	Grade1&2	III/IV	Yes	No	4.1	34.0
+TB95_1	Cervical Squamous Cell Carcinoma	Grade3	I	No	No	6.7	42.0
+NB95_2	Normal	Grade3	I	No	No	6.7	42.0
+TN21	Cervical Squamous Cell Carcinoma	Grade1&2	I	No	No	2.6	53.0
+TB125	Cervical Squamous Cell Carcinoma	Grade1&2	II	No	Yes	3.6	72.0
+TN24	Cervical Squamous Cell Carcinoma	Grade3	I	No		8.0	80.0
+TN32	Cervical Adenocarcinoma	Grade1&2	I	No	No	3.0	42.0
+TB120	Cervical Squamous Cell Carcinoma	Grade1&2	III/IV	Yes	No	2.7	63.0
+TB140_1	Cervical Squamous Cell Carcinoma	Grade3	I	No	No	1.5	53.0
+NB140_2	Normal	Grade3	I	No	No	1.5	53.0
+TB37	Cervical Squamous Cell Carcinoma	Grade1&2	III/IV	No	Yes	4.0	58.0
+TB55	Cervical Squamous Cell Carcinoma	Grade3	III/IV	Yes	Yes	7.1	61.0
+TB77	Cervical Squamous Cell Carcinoma	Grade3	I	No	Yes	2.4	59.0

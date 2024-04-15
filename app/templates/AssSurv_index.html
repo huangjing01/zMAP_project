@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% block title %}
+    AssSurvival
+{% endblock %} 
+{% block content %} 
+<div class="container" style="width: 98%;"> 
+ <div class="row"> 
+  <div class="col-md-6 col-md-offset-3"> 
+   <div id="upload_form1"> 
+    <br /> 
+
+    {% with messages = get_flashed_messages() %}
+     	{% if messages %}
+     	<p class="file-error-message" style="display: block;">
+       	{{ messages[0] }}
+     	</p> 
+      {% endif %}
+    {% endwith %}
+     <h1 style="display: block; margin-left: auto; margin-right: auto; font-size: 24px; letter-spacing: 0.18rem; margin-top: 0px; margin-bottom: 0px;">Association with survival data</h1>
+     
+     <p>Univariate Cox proportional hazard regression model is used to identify prognostic markers based on z-statistic.</p>
+     <img src="{{ url_for('lib.static', filename='img/association_with_survival.png') }}" class="img-fluid" style="max-width: 90%; height: auto;">
+     <div class="row">
+        <form action="{{url_for('AssSurv.result')}}" class="form-group" role="form" method="post" id="formID" enctype="multipart/form-data">
+         <div class="control-group" style="margin-bottom: 24px">
+            <label for="input-1" class="control-label">
+              <b>z-statistic file</b><br><p>Please supply z-statistic file. Example file: <a href="{{url_for('manual.example_data',example_file='AssSurv_example_z_statistic_table.txt')}}">AssSurv_example_z_statistic_table.txt</a></p>
+            </label>
+            <input id="input-1" name="input-1" type="file" accept=".txt" data-show-preview="false" class="file-loading" />
+            <p id="errorBlock1"></p>
+          </div>
+          <div class="control-group" style="margin-bottom: 24px">
+            <label for="input-2" class="control-label">
+              <b>Survival file</b><br><p>The survival file has three columns and is tab-delimited. The first row includes the column headers: Sample_id, survival_time, and death_or_not. Example file: <a href="{{url_for('manual.example_data',example_file='AssSurv_example_survival.txt')}}">AssSurv_example_survival.txt</a></p>
+            </label>
+            <input id="input-2" name="input-2" type="file" accept=".txt" data-show-preview="false" class="file-loading" />
+            <p id="errorBlock2"></p>
+          </div>
+
+         <button type="reset" class="btn btn-primary"  style="background-color: #CA8115;height: 45px;width: 80px;float: left;margin-left: 50px">Reset</button> 
+         <button type="submit" class="btn btn-primary" style="background-color: #27357e;height: 45px;width: 80px;float: right;margin-right: 20px">Submit</button>
+       </form>
+     </div>
+    <br /> 
+    <br /> 
+   </div> 
+  </div> 
+ </div> 
+</div> 
+<script>
+
+$(document).on('ready', function() {
+  //  $("button[type=reset]").prop('disabled',true);
+   // $("button[type=submit]").prop('disabled',true);
+    $("#input-1").fileinput({
+        showUpload:false,
+        showRemove:false,
+        showClose:false,
+        elErrorContainer: "#errorBlock1"
+
+    });
+    $("#input-2").fileinput({
+        showUpload:false,
+        showRemove:false,
+        showClose:false,
+        elErrorContainer: "#errorBlock2"
+
+    });
+
+    $("input").not("[type=submit]").jqBootstrapValidation();
+});
+
+
+
+</script>  
+{% endblock%} 

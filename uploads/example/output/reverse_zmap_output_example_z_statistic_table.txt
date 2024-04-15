@@ -1,0 +1,1 @@
+/home/shao/zMap/app/templates/input_file/reverse_zMAP/reverse_zMAP_results/z_statistic_table.txt

@@ -1,0 +1,1 @@
+/home/shao/zMap/app/templates/input_file/reverse_zMAP/small_data_protein_level_intensity.txt

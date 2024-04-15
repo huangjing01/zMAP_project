@@ -1,0 +1,163 @@
+{% extends 'base.html' %}
+{% block title %}
+    Network
+{% endblock %} 
+{% block content %}
+
+<div class="container" style="width: 98%;"> 
+ <br /> 
+
+ <div class="row"> 
+  <div class="col-md-6 col-md-offset-3"> 
+  <div id="upload_form1">
+    {% with messages = get_flashed_messages() %} {% if messages %} 
+   <p class="file-error-message" style="display: block;"> {{ messages[0] }} </p> {% endif %} {% endwith %} 
+   <h1 style="display: block; margin-left: auto; margin-right: auto; font-size: 24px; letter-spacing: 0.18rem; margin-top: 0px; margin-bottom: 0px;">Network analysis</h1> 
+   <p>A protein co-expression network is constructed based on the z-statistics. Proteins detected in more than half of the samples are included in the analysis. We first used the KNN method to impute missing values in the z-statistic matrix. Then, we obtained the PTCCs for all pairs of the proteins by applying a previously developed method for covariance matrix estimation. Finally, the statistical significance of each PTCC was assessed based on a mixture model. When constructing the co-expression network, an edge was added to link a protein pair if and only if the corresponding PTCC was positive and significant.</p>
+     <img src="{{ url_for('lib.static', filename='img/co-expression.png') }}" class="img-fluid" style="max-width: 90%; height: auto;">
+   <div class="control-group" style="margin-bottom: 24px"> 
+    <label for="input-2" class="control-label"><b>Protein expression matrices</b></label> 
+    <div class="controls" style="margin-bottom: 10px"> 
+     <input id="input-2" name="input-2" type="file" data-show-preview="false" class="file-loading" /> 
+     <p id="errorBlock"></p> 
+    </div> 
+   </div> 
+   <div class="control-group" style="margin-bottom: 24px"> 
+    <label class="control-label"><b>Module detection</b></label> 
+    <select class="form-control" style="margin-bottom: 24px" name="method" id="method"> <option value="static">static treecut</option> <option value="dynamic">dynamic treecut</option> </select> 
+   </div> 
+   <button type="reset" class="btn btn-primary" onclick="javascript:location.reload();" style="background-color: #CA8115;height: 45px;width: 80px;float: left;margin-left: 50px">Reset</button> 
+   <button type="button" id="ajax_btn" class="btn btn-primary" style="background-color: #27357e;height: 45px;width: 80px;float: right;margin-right: 20px">Submit</button> 
+   <br />
+   <br /> 
+   <div id="abc">
+    <div></div>
+   </div> 
+  </div> 
+ </div> 
+</div>
+ <br /> 
+</div> 
+
+<script>
+var state_tmp = new Array();
+var status_tmp_e = '';
+div = $('<div></div><br>');
+$('#abc').append(div);
+
+function update_progress(status_url, status_div) {
+    // send GET request to status URL
+    $.getJSON(status_url,
+    function(data) {
+        running_status = data['status'];
+        if (running_status != state_tmp) {
+            if (state_tmp.length == 0) {
+                for (j = 0, len = running_status.length; j < len; j++) {
+                    var para = document.createElement("p");
+                    status_tmp_e = data['status'][j];
+                    para.innerHTML = status_tmp_e;
+                    $(status_div).append(para);
+                    $('#abc>div>p').css("margin", "1px");
+                }
+            } else {
+                for (j = state_tmp.length - 1, len = running_status.length; j < len; j++) {
+                    if (data['status'][j] != status_tmp_e) {
+                        var para = document.createElement("p");
+                        status_tmp_e = data['status'][j];
+                        para.innerHTML = status_tmp_e;
+                        $(status_div).append(para);
+                        $('#abc>div>p').css("margin", "1px");
+                    }
+                }
+
+            }
+            state_tmp = running_status;
+        }
+        if (data['state'] != 'PENDING' && data['state'] != 'PROGRESS') {
+          console.log('result' in data);
+            if ('result' in data) {
+                url_sep = status_url.split("/");
+                console.log(url_sep);
+                process_id = url_sep[url_sep.length - 3];
+                console.log(process_id);
+                access_network("{{url_for('network.net_result',process_id='ADDSHARE1') }}".replace("ADDSHARE1", process_id));
+                console.log("{{url_for('network.net_result',process_id='ADDSHARE1') }}".replace("ADDSHARE1", process_id));
+                access_network("{{url_for('network.net_style',process_id='ADDSHARE1') }}".replace("ADDSHARE1", process_id));
+                console.log("{{url_for('network.net_style',process_id='ADDSHARE1') }}".replace("ADDSHARE1", process_id));
+                window.location = "{{url_for('network.result',process_id='ADDSHARE1') }}".replace("ADDSHARE1", process_id);
+                function access_network(net_url) {
+                    $.getJSON(net_url,
+                    function(data) {
+                        if (data == null) {
+                            access_network(net_url);
+                        }
+                    });
+                }
+            } else {
+                // something unexpected happened
+                $(status_div).append(para);
+            }
+        } else {
+            update_progress(status_url, status_div);
+
+        }
+
+    });
+}
+
+$(document).on('ready',
+function() {
+    $("#input-2").fileinput({
+        showUpload: false,
+        showRemove: false,
+        showClose: false,
+        uploadUrl: "{{url_for('network.validate') }}",
+        elErrorContainer: "#errorBlock",
+        layoutTemplates: {
+            progress: '<div class="progress-bar progress-bar-striped text-center" aria-valuemax="100" style="width:{percent}%; border-radius:4px;">\n' + '        {status}\n' + '     </div>\n'
+        }
+
+    }).on("filebatchselected",
+    function(event, files) {
+        $(this).fileinput("upload");
+
+    }).on("fileuploaded",
+    function(event, data) {
+        if (data.response) {
+            if (data.response.id) {
+                var variable1 = data.response.id;
+                $("#ajax_btn").click(function() {
+                    $.ajax({
+                        url: "{{ url_for('network.processing', process_id='ADDSHARE3') }}".replace("ADDSHARE3", variable1),
+                        dataType: "json",
+                        data: {
+                            "method": $("#method").val()
+                        },
+                        type: "POST",
+                        success: function(data) {
+
+                            var process_id = data.process_id;
+                            var task_id = data.task_id;
+                            var method = data.method;
+                            var status_url = "{{url_for('network.taskstatus', process_id='ADDSHARE1',method='ADDSHARE2',task_id='ADDSHARE3')}}".replace("ADDSHARE1", process_id).replace("ADDSHARE2", method).replace("ADDSHARE3", task_id);
+                            update_progress(status_url, $("#abc")[0]);
+
+                        },
+                        error: function() {
+                            alert('Unexpected error');
+                        }
+
+                    })
+                });
+
+            }
+
+        }
+    });
+
+    $("input,select,textarea").not("[type=submit]").jqBootstrapValidation();
+
+});
+</script>
+
+{% endblock%}

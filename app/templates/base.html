@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head> 
+  <meta charset="utf-8" /> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags --> 
+  <link rel="shortcut icon" type="image/x-icon" href="http://bioinfo.sibs.ac.cn/shaolab/MAP/idesign/images/favicon.ico">
+  <meta name="description" content="The zMAP project" /> 
+  <meta name="author" content="" /> 
+  <title>
+{% block title %}{% endblock %}
+</title>
+ </head>
+ <body>
+   {% block css %} 
+  <link href="{{ url_for('lib.static',filename='css/font-awesome.css') }}" media="all" rel="stylesheet" type="text/css" /> 
+ <link rel="stylesheet" href="{{ url_for('lib.static', filename='css/main.css') }}" />
+  <link href="{{ url_for('lib.static',filename='css/fileinput.min.css') }}" media="all" rel="stylesheet" type="text/css" /> 
+  <link href="{{ url_for('lib.static',filename='css/jquery.fancybox.min.css') }}" media="all" rel="stylesheet" type="text/css" /> 
+  {% endblock %} {% block js %} 
+  <script src="{{ url_for('lib.static', filename='js/jquery.min.js') }}"></script> 
+  <script src="{{ url_for('lib.static', filename='js/bootstrap.min.js') }}"></script> 
+  <script src="{{ url_for('lib.static',filename='js/fileinput.min.js') }}"></script> 
+  <script src="{{ url_for('lib.static', filename='js/jqBootstrapValidation.js') }}"></script> 
+  <script src="{{ url_for('lib.static', filename='js/jquery.albumSlider.min.js') }}"></script>
+  <script src="{{ url_for('lib.static', filename='js/jquery.fancybox.min.js') }}"></script>
+  {% endblock %}   
+  <nav class="navbar navbar-default navbar-fixed-top"> 
+   <!--topbar--> 
+   <div class="topbar"> 
+    <div class="row"> 
+     <div class="col-sm-6 col-md-6"> 
+      <div id="showtimes" style="padding-left: 18px ;color:#f1f6ff;">
+       2020-04-15 09:36:09 Wednesday
+      </div> 
+     </div> 
+     <div class="col-sm-6 col-md-6"> 
+      <div style="float:right;"> 
+       <a href="http://bioinfo.sibs.ac.cn/shaolab/" target="_blank" style="padding: 8px 8px;"><i class="fa fa-home fa-fw" aria-hidden="true"></i></a> 
+       <a href="https://github.com/shao-lab/" target="_blank" style="padding: 8px 28px;"><i class="fa fa-github" aria-hidden="true"></i></a> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <!--topbar--> 
+   <div class="container navbar-container" style="width: 100%;"> 
+    <div class="navbar-header"> 
+     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> 
+     <a class="navbar-brand" href="{{url_for('index.home') }}" style="margin-right: 40px;"><span><img src="{{ url_for('lib.static', filename='img/logo.png') }}" /></span></a> 
+    </div> 
+    <div id="navbar" class="collapse navbar-collapse"> 
+     <div class="navbar-right"> 
+      <ul class="nav navbar-nav"> 
+       <li><a id="nav_1" class="nav-item dropdown u-letter-spacing-xxsmall" href="{{url_for('index.home') }}"><b>Home</b></a></li> 
+       <li class="nav-item dropdown"><a id="nav_2" class="nav-link dropdown-toggle link-extended u-letter-spacing-xxsmall" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><b>Differential Analysis</b><b class="caret"></b></a> 
+        <div class="dropdown-menu" style="width:180px" aria-labelledby="navbarDropdownMenuLink"> 
+         <ul> 
+          <li> <a href="http://bioinfo.sibs.ac.cn/shaolab/MAP/" class="dropdown-menu__item__link">MAP</a></li> 
+          <li> <a href="{{url_for('zMap.index') }}" class="dropdown-menu__item__link">zMAP</a></li> 
+          <li><a href="{{url_for('reverse_zMap.index') }}" class="dropdown-menu__item__link">reverse-zMAP</a></li> 
+         </ul> 
+        </div></li> 
+       <li class="nav-item dropdown"> <a id="nav_3" class="nav-link dropdown-toggle link-extended u-letter-spacing-xxsmall" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><b>Downstream Analysis</b><b class="caret"></b></a> 
+        <div class="dropdown-menu" style="width:300px" aria-labelledby="navbarDropdownMenuLink"> 
+         <ul> 
+          <li> <a href="{{url_for('QC.index') }}" class="dropdown-menu__item__link">Sample quality control</a></li> 
+          <li> <a href="{{url_for('HVPannotation.index') }}" class="dropdown-menu__item__link">HVPs identification and clustering</a></li> 
+          <li><a href="{{url_for('Sample_Subgroup.index') }}" class="dropdown-menu__item__link">Sample subgrouping</a></li>
+          <li><a href="{{url_for('AssClinical.index') }}" class="dropdown-menu__item__link">Association with clinical feature</a></li> 
+          <li><a href="{{url_for('Surv.index') }}" class="dropdown-menu__item__link">Survival analysis</a></li> 
+          <li><a href="{{url_for('AssSurv.index') }}" class="dropdown-menu__item__link">Association with survival data</a></li> 
+          <li><a href="{{url_for('AssMutation.index') }}" class="dropdown-menu__item__link">Association with mutation data</a></li>
+          <li><a href="{{url_for('GSVA.index') }}" class="dropdown-menu__item__link">Gene sets variation analysis</a></li> 
+          <li><a href="{{url_for('network.index') }}" class="dropdown-menu__item__link">Co-expression network analysis</a></li> 
+         </ul> 
+        </div> </li> 
+       <li><a  id="nav_4" class="nav-item dropdown link-extended u-letter-spacing-xxsmall" href="{{url_for('manual.home') }}"><b>Documents</b></a></li> 
+      </ul> 
+     </div> 
+    </div> 
+   </div> 
+  </nav> 
+  <div class="wrapper">
+    {% block content%} {% endblock %} 
+  </div>
+<br>
+  <footer id="footer" class="fixed-bottom" style="color:#333">
+   <br />
+   <div class="footer-content">
+   <div class="col-sm-4 col-md-4 footer-content-1" style="padding-left: 100px; text-align: left;"> 
+    <p class="footer-label">Institution</p> 
+    <a href="http://bioinfo.sibs.ac.cn/shaolab/" target="_blank">Lab </a>
+    <br /> 
+    <a href="https://www.picb.ac.cn/picb/" target="_blank">PICB</a>
+    <br /> 
+    <a href="http://english.sinh.cas.cn/" target="_blank">SINH</a>
+    <br /> 
+    <a href="http://english.cas.cn/" target="_blank">CAS</a>
+    <br /> 
+   </div> 
+   <div class="col-sm-4 col-md-4 footer-content-2" style="padding-left: 100px; text-align: left;color:#f1f6ff;"> 
+    <p class="footer-label">Contact Us</p> Tel: (+86) 021-54920367&nbsp;&nbsp;&nbsp; 
+    <br />Email: 
+    <a href="mailto:shaozhen@picb.ac.cn">shaozhen@picb.ac.cn</a>
+    <br />Address: No. 320 Yueyang Rd., Shanghai 200031, P. R. China
+    <br /> 
+   </div> 
+   <div class=" col-sm-4 col-md-4 footer-content-3" style="padding-left: 100px; text-align: left;"> 
+    <p class="footer-label">Quick Links</p> 
+    <a href="https://manorm.readthedocs.io/en/latest/" target="_blank">MAnorm </a>
+    <br /> 
+    <a href="https://motifscan.readthedocs.io/en/latest/" target="_blank">MotifScan </a>
+    <br /> 
+    <a href="https://mamotif.readthedocs.io/en/latest/" target="_blank">MAmotif </a>
+    <br /> 
+    <a href="https://github.com/tushiqi/MAnorm2/" target="_blank">MAnorm2 </a>
+    <br /> 
+   </div>
+   </div>
+   <p class="text-center copyright" style="color: #f1f6ff;margin-bottom:20px"> Copyright&copy; <a href="http://bioinfo.sibs.ac.cn/shaolab/" target="_blank">2020 Laboratory of Regulatory and Systems Genomics </a></p> 
+  </footer> 
+  <script type="text/javascript">
+    $('body').append('<div id="toTop"><i class="fa fa-angle-up"></i></div>');
+    $(window).scroll(function () {
+        if ($(this).scrollTop() != 0) {
+            $('#toTop').fadeIn();
+        } else {
+            $('#toTop').fadeOut();
+        }
+    }); 
+
+    $('#toTop').on('click',function(){
+        $("html, body").animate({ scrollTop: 0 }, 600);
+        return false;
+    });
+    $(document).ready(function(){
+        mod_url = window.location.href;
+        mod_url_name = mod_url.split("/");
+        mod_url_i = mod_url_name[mod_url_name.indexOf("zMAP") + 1];
+        if(["zMAP","reverse-zMAP","reverse-zMAP.CancerPro"].includes(mod_url_i)){
+          $("#nav_2").css("color","#27357e");
+        }else if(["PCA","Enrichment","Clustering","Network"].includes(mod_url_i)){
+          $("#nav_3").css("color","#27357e");
+        }else if(mod_url_i=="manual"){
+          $("#nav_4").css("color","#27357e");
+        }else{
+          $("#nav_1").css("color","#27357e");
+        }
+       
+    });
+    function show_cur_times(){var date_time=new Date();var week;switch(date_time.getDay()){case 1:week="Monday";break;case 2:week="Tuseday";break;case 3:week="Wednesday";break;case 4:week="Thursday";break;case 5:week="Friday";break;case 6:week="Saturday";break;default:week="Sunday";break}var year=date_time.getFullYear();if(year<10){year="0"+year}var month=date_time.getMonth()+1;if(month<10){month="0"+month}var day=date_time.getDate();if(day<10){day="0"+day}var hours=date_time.getHours();if(hours<10){hours="0"+hours}var minutes=date_time.getMinutes();if(minutes<10){minutes="0"+minutes}var seconds=date_time.getSeconds();if(seconds<10){seconds="0"+seconds}var date_str=year+"-"+month+"-"+day+" "+hours+":"+minutes+":"+seconds+" "+week;document.getElementById("showtimes").innerHTML=date_str};
+        setInterval("show_cur_times()", 100);
+       $("#footer").removeClass("fixed-bottom");
+       function changefooterPosition(){
+        var contentHeight = document.body.scrollHeight + $('#footer').height();
+        var winHeight = $(window).height();   
+        if(!(contentHeight > winHeight)){
+          $("#footer").addClass("fixed-bottom");
+          $("#footer").css("width",document.body.scrollWidth);
+        }else{
+          $("#footer").removeClass("fixed-bottom");
+  	      $("#footer").css("width",document.body.scrollWidth);
+          if($(".footer-content").height()==0){ 
+             $(".copyright").css("margin-top", Math.max($('.footer-content-1').height(),$('.footer-content-2').height(),$('.footer-content-3').height())+20);
+          }else{
+            $(".copyright").css("margin-top", '');
+          }
+        }
+       }
+       window.onload=function(){
+        changefooterPosition();
+       };
+       window.onresize=function(){
+        changefooterPosition();
+       };
+
+
+
+</script> 
+<style>
+
+.albumSlider {width:600px; margin:0 auto; border:2px solid #CCC; padding-right:10px; font-size:10px;
+	position:relative;overflow:hidden;}
+.albumSlider_border {width:600px; margin:0 auto; border:2px solid #CCC; padding-right:10px; font-size:10px;
+	position:relative;overflow:hidden;}
+.albumSlider_wider{width:710px;}
+.albumSlider .fullview{position:relative; float:left;}
+.albumSlider .fullview,
+.albumSlider .fullview img {width:480px;height:500px}
+	.albumSlider .fullview img {position:relative; top:0; left:0;}
+.albumSlider_wider .fullview img {width:600px;}
+.albumSlider_higher .fullview img {height:600px;}
+
+.albumSlider .slider{width:110px;height:490px;background:#fff;
+    position:absolute;right:3px; margin-top:-3px; border-left:2px solid #CCC;}
+.albumSlider .imglistwrap{height:448px; overflow:hidden;margin-right:5px; position:relative;}
+.albumSlider .imglist{position:relative;}
+.albumSlider ul{list-style-type: none; padding-left:0}
+.albumSlider li{height:96px;margin-top:0;clear:both; list-style:none;}
+.albumSlider li img{width:90px;height:90px; float:right; display:inline;
+    margin:2px 2px 0 0;border:1px solid #EAF2D3;}
+.albumSlider a{width:103px;height:96px;display:block; outline:none;}
+.albumSlider li a:hover,
+.albumSlider li.current a{background:url("{{url_for('lib.static',filename='img/album-slider-arrow_box.png')}}") no-repeat 0 0;background-size: 100% 100%;}
+
+.albumSlider .button {width: 100px; height:16px;cursor:pointer;margin-left:5px;
+    background:url("{{url_for('lib.static',filename='img/album-slider-button.png')}}") no-repeat 50% 100%;}
+        .albumSlider .movebackward{background-position: 50% 0;}
+
+</style>
+ </body>
+</html>

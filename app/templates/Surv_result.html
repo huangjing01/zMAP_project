@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}
+    Surv Analysis
+{% endblock %}
+{% block content %}
+
+<div class="container" style="width: 98%;"> 
+<br /><br />
+<div class="row"> 
+    <div class="col-md-6 col-md-offset-3">
+        <h1 style="display: block; margin-left: auto; margin-right: auto; font-size: 24px; letter-spacing: 0.18rem; margin-top: 0px;">Survival analysis: task <span id ="task_status">completed</span></h1>
+        <p>The job progress state is shown below.</p>
+        <div id="process_info" style="height: 300px; overflow-y: auto;margin-bottom: 50px"><br/>
+            {% for log in log_info %}
+            <p>{{ log }}</p>
+            {% endfor %}
+        </div>
+         <a class="btn btn-primary" href="{{url_for('Surv.fetch_filedir',filedir=filedir_id)}}">Survival results</a>
+    </div>
+
+</div> 
+</div>
+
+{% endblock%}

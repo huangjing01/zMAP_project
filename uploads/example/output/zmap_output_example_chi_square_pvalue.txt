@@ -1,0 +1,1 @@
+/home/shao/zMap/app/templates/input_file/zMAP/zMAP_results/zmap_chi_square_pvalue.txt

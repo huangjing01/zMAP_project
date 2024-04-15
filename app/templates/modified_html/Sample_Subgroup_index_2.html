@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% block title %}
+    Cluster
+{% endblock %} 
+{% block content %} 
+<div class="container" style="width: 98%;"> 
+ <div class="row"> 
+  <div class="col-md-6 col-md-offset-3"> 
+   <div id="upload_form1"> 
+    <br /> 
+
+    {% with messages = get_flashed_messages() %}
+     	{% if messages %}
+     	<p class="file-error-message" style="display: block;">
+       	{{ messages[0] }}
+     	</p> 
+      {% endif %}
+    {% endwith %}
+     <h1 style="display: block; margin-left: auto; margin-right: auto; font-size: 24px; letter-spacing: 0.18rem; margin-top: 0px; margin-bottom: 0px;">Sample Subgrouping</h1>
+     <p>For delineating molecular subtypes at the protein level, this function is designed to select a subset of highly variable proteins across samples. It then undertakes unsupervised clustering on the samples, offering quantitative evidence to ascertain both the number and composition of potential clusters within the dataset. For in-depth algorithmic insights, please consult the details provided in <i>Consensus Clustering</i>.</p>
+     <img src="{{ url_for('lib.static', filename='img/sample_clustering_association_with_clinical_and_molecule_feature.png') }}" class="img-fluid" style="max-width: 90%; height: auto;">
+     <div class="row">
+        <form action="{{url_for('Sample_Subgroup.result')}}" class="form-group" role="form" method="post" id="formID" enctype="multipart/form-data">
+         <div class="control-group" style="margin-bottom: 24px">
+            <label for="input-1" class="control-label">
+          <!--    <b>Z-statistic file</b> -->
+			<b>z-statistic file</b><br><p>It is a tab-delimited file with samples in columns and proteins in rows. Example file: <a href="">SamSubgroping_example_z_statistic_table.txt</a></p>
+            </label>
+            <input id="input-1" name="input-1" type="file" accept=".txt" data-show-preview="false" class="file-loading" />
+            <p id="errorBlock1"></p>
+          </div>
+          <div class="control-group" style="margin-bottom: 24px">
+            <label for="input-2" class="control-label">
+<!--              <b>Sample information file</b>  -->
+			  <b>Sample information file</b><br><p>This file has three columns and is tab-delimited. The first row includes the column headers: Sample_id, MS_run, and Sample_condition. Example file: <a href="">SamSubgroping_example_sample_info.txt</a></p>
+            </label>
+            <input id="input-2" name="input-2" type="file" accept=".txt" data-show-preview="false" class="file-loading" />
+            <p id="errorBlock2"></p>
+          </div>
+          <div class="control-group" style="margin-bottom: 24px">
+            <label class="control-label">
+		<!--下面一行有修改---->	
+              <b>Sample condition</b><br><p>Perform clustering on samples under specific conditions. Example: Tumor_tissue </p>
+            </label>
+            <div class="controls control-label">
+              <input type="text" class="form-control" name="condition_name" required/>
+            </div>
+          </div>
+          <div class="control-group" style="margin-bottom: 24px"> 
+<!--            <label class="control-label"><b>Top N(number) hypervariable proteins for subgrouping:</b></label>  -->
+			<label class="control-label"><b>Top N(number) hypervariable proteins for subgrouping</b></label> 
+			
+            <div class="controls "> 
+            <input type="number" class="form-control" required="" min="500" max="8000" name="protein_number" value="3000" /> 
+            </div> 
+          </div> 
+          
+
+         <button type="reset" class="btn btn-primary"  style="background-color: #CA8115;height: 45px;width: 80px;float: left;margin-left: 50px">Reset</button> 
+         <button type="submit" class="btn btn-primary" style="background-color: #27357e;height: 45px;width: 80px;float: right;margin-right: 20px">Submit</button>
+       </form>
+     </div>
+    <br /> 
+    <br /> 
+   </div> 
+  </div> 
+ </div> 
+</div> 
+<script>
+
+$(document).on('ready', function() {
+  //  $("button[type=reset]").prop('disabled',true);
+   // $("button[type=submit]").prop('disabled',true);
+    $("#input-1").fileinput({
+        showUpload:false,
+        showRemove:false,
+        showClose:false,
+        elErrorContainer: "#errorBlock1"
+
+    });
+    $("#input-2").fileinput({
+        showUpload:false,
+        showRemove:false,
+        showClose:false,
+        elErrorContainer: "#errorBlock2"
+
+    });
+
+    $("input").not("[type=submit]").jqBootstrapValidation();
+});
+
+
+
+</script>  
+{% endblock%} 

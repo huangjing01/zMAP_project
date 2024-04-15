@@ -1,0 +1,29 @@
+
+ example_file ：~/zMap/uploads/example/input
+
+
+#########HVPs identification and clustering######
+The chi-square statistics derived by zMAP along with the associated numbers of degrees of freedom were summed across MS runs for each protein, giving rise to a p-value that assessed the overall expression variability of the protein. 
+This functionality is designed to select hypervariable proteins (HVPs) from the output files of zMAP and cluster them to obtain multiple expression signatures. 
+Then, pathway enrichment analysis was conducted on these signatures to reveal biological insights.
+###########
+parameters：
+Chi-square and p-value file | Output file zmap_chi_square_pvalue.txt from zMAP. |  HVP_example_zmap_chi_square_pvalue.txt
+z-statistic file            | Output file z_statistic_table.txt from zMAP.      |  HVP_example_z_statistic_table.txt
+Sample information file     | The sample information file is a three-column, tab-delimited file with the first row identifying the columns. The column names are Sample_id, Sample_condition, and MS_run. |HVP_example_sample_info.txt
+Number of HVP clusters      | HVPs are hierarchically clustered into multiple clusters revealing diverse expression signatures across different sample conditions.| The default is 15
+Minimum proteins within each cluster| If the number of proteins within certain clusters falls below the specified minimum, these clusters will be merged into a single cluster labeled as cluster_0. As a result, the final number of clusters may be fewer than what the user initially specified.| The default is 20
+Number of top-ranked DEPs   |Top-ranked proteins are selected for heatmap visualization. | the default is 100
+Number of DEP clusters      |  Top-ranked DEPs are clustered into multiple clusters based on K-means. |the default is 8
+
+
+#######GSVA###########
+
+GSVA calculates gene set enrichment scores (GSVA scores) for each sample using the z-statistic matrix. 
+Differential expression analysis is then conducted on these GSVA scores using limma, aiming to identify differentially regulated pathways across sample groups. Finally, the differential pathway activities across sample groups are visualized using a heatmap.
+##################
+parameters：
+z-statistic file            |It is a tab-delimited file with samples in columns and proteins in rows. |GSVA_example_z_statistic_table.txt
+Sample information file     |The sample information file is a three-column, tab-delimited file with the first row identifying the columns. The column names are Sample_id, Sample_condition, and MS_run. |GSVA_example_sample_info.txt
+Top N(number) Pathways      |Extract a table of the top-ranked differentially regulated pathways across sample groups.  ##The default is 50 
+FDR							|BH-adjusted pvalue cutoff for significance.  ###The default is 0.05.

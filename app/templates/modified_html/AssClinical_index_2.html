@@ -1,0 +1,159 @@
+{% extends 'base.html' %}
+{% block title %}
+    AssClinical
+{% endblock %} 
+{% block content %} 
+<div class="container" style="width: 98%;"> 
+ <div class="row"> 
+  <div class="col-md-6 col-md-offset-3"> 
+   <div id="upload_form1"> 
+    <br /> 
+
+    {% with messages = get_flashed_messages() %}
+     	{% if messages %}
+     	<p class="file-error-message" style="display: block;">
+       	{{ messages[0] }}
+     	</p> 
+      {% endif %}
+    {% endwith %}
+     <h1 style="display: block; margin-left: auto; margin-right: auto; font-size: 24px; letter-spacing: 0.18rem; margin-top: 0px; margin-bottom: 0px;">Association with clinical feature</h1>
+     <!-- 下面一行做了修改HPVs 修改为 HVPs-->
+     <p>samples underwent grouping using the z-statistic matrix derived from HVPs, with the intent of correlating proteomic subgroups to clinical and molecular features. We then employed either the Chi-square test or Fisher's exact test to examine the association between proteomic subgroups and discrete sample features. This choice was made based on the number of categories within each feature. For continuous features, we utilized Student’s t-test or ANOVA.<br></p>
+      <p>ANOVA was further applied to pinpoint differentially expressed proteins (DEPs) among sample groups. Hierarchical clustering of proteins ensued, driven by the z-statistic matrix, revealing distinctive expression signatures. Following this, pathway enrichment analysis was conducted for each set of proteins.</p>
+     <img src="{{ url_for('lib.static', filename='img/sample_clustering_association_with_clinical_and_molecule_feature.png') }}" class="img-fluid" style="max-width: 90%; height: auto;">
+	 
+<!--     <p>Performing hierarchical clustering and principal component analysis on the z-statistic matrix of samples provides a concise visualization of the overall impact of sample conditions and MS runs.</p> -->
+
+     <div class="row">
+        <form action="{{url_for('AssClinical.result')}}" class="form-group" role="form" method="post" id="formID" enctype="multipart/form-data">
+         <div class="control-group" style="margin-bottom: 24px">
+            <label for="input-1" class="control-label">
+              
+	<!--		  <b>Z-statistic file</b><br><p>please supply reverse-zMAP output z-statitics file. Example file: <a href="">z_statistics_table.txt</a></p> -->
+			  <b>z-statistic file</b><br><p>Please supply z-statitic file. Example file: <a href="">AssClinical_example_z_statistic_table.txt</a></p>
+            </label>
+            <input id="input-1" name="input-1" type="file" accept=".txt" data-show-preview="false" class="file-loading" />
+            <p id="errorBlock1"></p>
+          </div>
+          <div class="control-group" style="margin-bottom: 24px">
+            <label for="input-2" class="control-label">
+          <!--    <b>Sample cluster information file</b><br><p>please supply Samplecluster file as <i>reverse-zMAP</i> input <i>Sample description</i>. Example file: <a href="">AssClinical_example_z_statistic_table.txt</a></p> -->
+		    <b>Sample cluster file</b><br><p>It is a two column, comma-delimited file with the first line identifying the columns. Example file: <a href="">AssClinical_example_sample_cluster.txt</a></p> 
+            </label>
+            <input id="input-2" name="input-2" type="file" accept=".txt" data-show-preview="false" class="file-loading" />
+            <p id="errorBlock2"></p>
+          </div>
+          <div class="control-group" style="margin-bottom: 24px">
+            <label for="input-3" class="control-label">
+              <b>Clinical information file</b><br><p>It is a tab-delimited file with clinical features in columns and samples in rows.Example file: <a href="">AssClinical_example_clinical_info.txt</a></p>
+            </label>
+            <input id="input-3" name="input-3" type="file" accept=".txt" data-show-preview="false" class="file-loading" />
+            <p id="errorBlock3"></p>
+          </div>
+          
+          <div class="control-group" style="margin-bottom: 24px">
+            <label class="control-label">
+			<!--下面一行有修改------>
+              <b>Clinical features(discrete variable name)</b>(For example, <i>Histology,Degree,Stage,Lymph_node,Abnormal_SCC</i>) 
+            </label>
+            <div class="controls control-label">
+              <input type="text" class="form-control" name="discrete" required/>
+            </div>
+          </div>
+          <div class="control-group" style="margin-bottom: 24px">
+            <label class="control-label">
+              <b>Clinical features(continuous variable name)</b>(For example, <i>Tumor_size_cm,Age</i>) 
+            </label>
+            <div class="controls control-label">
+              <input type="text" class="form-control" name="continuous" required/>
+            </div>
+          </div>
+          <div class="control-group" style="margin-bottom: 24px">
+            <label for="input-4" class="control-label">
+			<!-- 下面一行有修改---->
+              <b>Color file</b><br><p>Tab-delimited file without column names. The first column represents discrete features, and the second column is the hexadecimal color code corresponding to the feature. Example file: <a href="">AssClinical_example_discrete_color.txt</a></p>
+            </label>
+            <input id="input-4" name="input-4" type="file" accept=".txt" data-show-preview="false" class="file-loading" />
+            <p id="errorBlock4"></p>
+          </div>
+          <div class="control-group" style="margin-bottom: 24px">
+            <label for="input-5" class="control-label">
+			<!--下面一行有修改---->
+              <b>Colorbar file</b><br><p>Tab-delimited file without column names. The first column represents continous features, and the second column is the colormaps in <i>Matplotlib</i> for each feature. Example file: <a href="">AssClinical_example_continuous_colorbar.txt</a></p>
+            </label>
+            <input id="input-5" name="input-5" type="file" accept=".txt" data-show-preview="false" class="file-loading" />
+            <p id="errorBlock5"></p>
+          </div>
+          <div class="control-group" style="margin-bottom: 24px"> 
+      <!--      <label class="control-label"><b>FDR</b>(false discovery rate)</label> -->
+	        <label class="control-label"><b>FDR</b>(BH-adjusted p-value cutoff for ANOVA)</label> 
+            <div class="controls "> 
+            <input type="number" class="form-control" required="" min="0" max="0.2" name="fdr" value="0.01" /> 
+            </div> 
+          </div> 
+          <div class="control-group" style="margin-bottom: 24px"> 
+		  <!-- 下面一行有修改-->
+            <label class="control-label"><b>Protein clusters</b></label> 
+            <div class="controls "> 
+            <input type="number" class="form-control" required="" min="1" max="10" name="cluster_n" value="4" /> 
+            </div> 
+          </div> 
+
+         <button type="reset" class="btn btn-primary"  style="background-color: #CA8115;height: 45px;width: 80px;float: left;margin-left: 50px">Reset</button> 
+         <button type="submit" class="btn btn-primary" style="background-color: #27357e;height: 45px;width: 80px;float: right;margin-right: 20px">Submit</button>
+       </form>
+     </div>
+    <br /> 
+    <br /> 
+   </div> 
+  </div> 
+ </div> 
+</div> 
+<script>
+
+$(document).on('ready', function() {
+  //  $("button[type=reset]").prop('disabled',true);
+   // $("button[type=submit]").prop('disabled',true);
+    $("#input-1").fileinput({
+        showUpload:false,
+        showRemove:false,
+        showClose:false,
+        elErrorContainer: "#errorBlock1"
+
+    });
+    $("#input-2").fileinput({
+        showUpload:false,
+        showRemove:false,
+        showClose:false,
+        elErrorContainer: "#errorBlock2"
+
+    });
+    $("#input-3").fileinput({
+        showUpload:false,
+        showRemove:false,
+        showClose:false,
+        elErrorContainer: "#errorBlock3"
+
+    });
+    $("#input-4").fileinput({
+        showUpload:false,
+        showRemove:false,
+        showClose:false,
+        elErrorContainer: "#errorBlock4"
+
+    });
+    $("#input-5").fileinput({
+        showUpload:false,
+        showRemove:false,
+        showClose:false,
+        elErrorContainer: "#errorBlock5"
+
+    });
+
+    $("input").not("[type=submit]").jqBootstrapValidation();
+});
+
+
+
+</script>  
+{% endblock%} 

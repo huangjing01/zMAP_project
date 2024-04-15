@@ -1,0 +1,174 @@
+	pathway	overlap	gene list	pvalue	padjust_by_bonferroni	padjust_by_BH
+0	Nicotinate and nicotinamide metabolism_Homo sapiens_hsa00760	3/20	BST1,PNP,NADK	0.0040988010268752815	0.7090925776494237	0.7090925776494237
+1	Galactose metabolism_Homo sapiens_hsa00052	3/26	MGAM,GALM,GALT	0.008693453267375589	1.0	0.7519837076279885
+2	Biosynthesis of amino acids_Homo sapiens_hsa01230	4/69	PGAM2,TKT,TAT,ARG1	0.02704502130512896	1.0	1.0
+3	Amoebiasis_Homo sapiens_hsa05146	4/92	ARG1,LAMA2,SERPINB10,C8A	0.06556168291126392	1.0	1.0
+4	Proteoglycans in cancer_Homo sapiens_hsa05205	6/177	CBL,WNT8A,RDX,ACTG1,WNT6,ITPR3	0.07301315053356441	1.0	1.0
+5	Phenylalanine, tyrosine and tryptophan biosynthesis_Homo sapiens_hsa00400	1/5	TAT	0.07974493876364647	1.0	1.0
+6	Salivary secretion_Homo sapiens_hsa04970	3/70	LYZ,ITPR3,BST1	0.10873112424584078	1.0	1.0
+7	Hematopoietic cell lineage_Homo sapiens_hsa04640	3/70	CSF3,IL5RA,IL11RA	0.10873112424584078	1.0	1.0
+8	Purine metabolism_Homo sapiens_hsa00230	5/157	CECR1,ATIC,PNP,DGUOK,ADSSL1	0.11814565186686236	1.0	1.0
+9	Hedgehog signaling pathway_Homo sapiens_hsa04340	2/40	WNT6,WNT8A	0.14063300072786478	1.0	1.0
+10	Basal cell carcinoma_Homo sapiens_hsa05217	2/41	WNT6,WNT8A	0.14631803324604897	1.0	1.0
+11	Metabolic pathways_Homo sapiens_hsa01100	22/1050	CECR1,NDUFB2,PNP,DGUOK,ADSSL1,GALM,ARG1,TCIRG1,ATIC,TKT,GALNT9,MGAM,NANP,GALT,MLYCD,NADK,FDPS,TAT,BST1,PANK4,UROC1,PGAM2	0.1465206657969479	1.0	1.0
+12	Ubiquitin mediated proteolysis_Homo sapiens_hsa04120	4/124	CBL,HERC1,UBE2G2,HERC2	0.1486462326014733	1.0	1.0
+13	Sulfur metabolism_Homo sapiens_hsa00920	1/10	SUOX	0.15315356631452157	1.0	1.0
+14	Vibrio cholerae infection_Homo sapiens_hsa05110	2/43	TCIRG1,ACTG1	0.15782479494275733	1.0	1.0
+15	Ubiquinone and other terpenoid-quinone biosynthesis_Homo sapiens_hsa00130	1/11	TAT	0.1671197958104628	1.0	1.0
+16	Amino sugar and nucleotide sugar metabolism_Homo sapiens_hsa00520	2/46	NANP,GALT	0.17538204909088598	1.0	1.0
+17	Transcriptional misregulation in cancer_Homo sapiens_hsa05202	4/135	MPO,ASPSCR1,ELANE,DEFA3	0.1836016598155768	1.0	1.0
+18	Cytosolic DNA-sensing pathway_Homo sapiens_hsa04623	2/48	CHUK,MAVS	0.18725221521959487	1.0	1.0
+19	Viral myocarditis_Homo sapiens_hsa05416	2/52	LAMA2,ACTG1	0.2112961906908163	1.0	1.0
+20	Phenylalanine metabolism_Homo sapiens_hsa00360	1/15	TAT	0.22072752412880037	1.0	1.0
+21	RIG-I-like receptor signaling pathway_Homo sapiens_hsa04622	2/55	CHUK,MAVS	0.2295204027373952	1.0	1.0
+22	Steroid biosynthesis_Homo sapiens_hsa00100	1/16	SOAT2	0.2335834781358429	1.0	1.0
+23	Epithelial cell signaling in Helicobacter pylori infection_Homo sapiens_hsa05120	2/59	TCIRG1,CHUK	0.2539645144190767	1.0	1.0
+24	One carbon pool by folate_Homo sapiens_hsa00670	1/18	ATIC	0.25866503023357146	1.0	1.0
+25	Pantothenate and CoA biosynthesis_Homo sapiens_hsa00770	1/18	PANK4	0.25866503023357146	1.0	1.0
+26	Glycolysis / Gluconeogenesis_Homo sapiens_hsa00010	2/60	PGAM2,GALM	0.2600884942919022	1.0	1.0
+27	Shigellosis_Homo sapiens_hsa05131	2/61	CHUK,ACTG1	0.26621403662867404	1.0	1.0
+28	Arginine biosynthesis_Homo sapiens_hsa00220	1/19	ARG1	0.27089748895916616	1.0	1.0
+29	Jak-STAT signaling pathway_Homo sapiens_hsa04630	3/111	CSF3,IL5RA,IL11RA	0.2767002165436251	1.0	1.0
+30	Histidine metabolism_Homo sapiens_hsa00340	1/20	UROC1	0.28292888352283707	1.0	1.0
+31	Lysosome_Homo sapiens_hsa04142	3/114	TCIRG1,NPC2,GM2A	0.2901617909460254	1.0	1.0
+32	Arrhythmogenic right ventricular cardiomyopathy (ARVC)_Homo sapiens_hsa05412	2/65	LAMA2,ACTG1	0.2906984901091841	1.0	1.0
+33	Complement and coagulation cascades_Homo sapiens_hsa04610	2/65	F8,C8A	0.2906984901091841	1.0	1.0
+34	Terpenoid backbone biosynthesis_Homo sapiens_hsa00900	1/21	FDPS	0.29476250602226506	1.0	1.0
+35	Protein export_Homo sapiens_hsa03060	1/21	IMMP2L	0.29476250602226506	1.0	1.0
+36	Cytokine-cytokine receptor interaction_Homo sapiens_hsa04060	4/168	CSF3,IL5RA,IL11RA,CCL16	0.30040641982426747	1.0	1.0
+37	Asthma_Homo sapiens_hsa05310	1/22	RNASE3	0.3064015948226184	1.0	1.0
+38	Collecting duct acid secretion_Homo sapiens_hsa04966	1/22	TCIRG1	0.3064015948226184	1.0	1.0
+39	Bacterial invasion of epithelial cells_Homo sapiens_hsa05100	2/68	CBL,ACTG1	0.30899991123575593	1.0	1.0
+40	Chronic myeloid leukemia_Homo sapiens_hsa05220	2/70	CBL,CHUK	0.32115006136501	1.0	1.0
+41	Hippo signaling pathway_Homo sapiens_hsa04390	3/121	WNT6,WNT8A,ACTG1	0.32172213687864115	1.0	1.0
+42	HTLV-I infection_Homo sapiens_hsa05166	5/228	FDPS,CHUK,WNT8A,WNT6,PTTG1	0.3231787664415977	1.0	1.0
+43	Apoptosis_Homo sapiens_hsa04210	3/122	CHUK,ITPR3,ACTG1	0.32623803354926967	1.0	1.0
+44	Hypertrophic cardiomyopathy (HCM)_Homo sapiens_hsa05410	2/73	LAMA2,ACTG1	0.33927351389082494	1.0	1.0
+45	Insulin signaling pathway_Homo sapiens_hsa04910	3/125	PPP1R3A,CBL,TSC1	0.3397826196993359	1.0	1.0
+46	Mucin type O-Glycan biosynthesis_Homo sapiens_hsa00512	1/25	GALNT9	0.3401832557461452	1.0	1.0
+47	Ribosome_Homo sapiens_hsa03010	3/126	MRPL23,RPS4Y1,RPLP0	0.34429442559383855	1.0	1.0
+48	Systemic lupus erythematosus_Homo sapiens_hsa05322	2/74	ELANE,C8A	0.3452828087834237	1.0	1.0
+49	Pentose phosphate pathway_Homo sapiens_hsa00030	1/26	TKT	0.35107555002887536	1.0	1.0
+50	Tyrosine metabolism_Homo sapiens_hsa00350	1/27	TAT	0.3617887272186432	1.0	1.0
+51	Dilated cardiomyopathy_Homo sapiens_hsa05414	2/78	LAMA2,ACTG1	0.36913202986139654	1.0	1.0
+52	Pancreatic secretion_Homo sapiens_hsa04972	2/78	ITPR3,BST1	0.36913202986139654	1.0	1.0
+53	Phagosome_Homo sapiens_hsa04145	3/132	TCIRG1,MPO,ACTG1	0.3712926856547261	1.0	1.0
+54	Nicotine addiction_Homo sapiens_hsa05033	1/28	GRIA4	0.3723257213521467	1.0	1.0
+55	Porphyrin and chlorophyll metabolism_Homo sapiens_hsa00860	1/28	HEPH	0.3723257213521467	1.0	1.0
+56	Peroxisome_Homo sapiens_hsa04146	2/79	PRDX5,MLYCD	0.3750424092394784	1.0	1.0
+57	Prostate cancer_Homo sapiens_hsa05215	2/80	CHUK,KLK3	0.3809301740392615	1.0	1.0
+58	Regulation of autophagy_Homo sapiens_hsa04140	1/29	ATG16L1	0.38268941865204376	1.0	1.0
+59	beta-Alanine metabolism_Homo sapiens_hsa00410	1/29	MLYCD	0.38268941865204376	1.0	1.0
+60	Melanogenesis_Homo sapiens_hsa04916	2/81	WNT6,WNT8A	0.3867944646358994	1.0	1.0
+61	Small cell lung cancer_Homo sapiens_hsa05222	2/82	LAMA2,CHUK	0.39263445563021204	1.0	1.0
+62	Prion diseases_Homo sapiens_hsa05020	1/30	C8A	0.3928826581951999	1.0	1.0
+63	Propanoate metabolism_Homo sapiens_hsa00640	1/30	MLYCD	0.3928826581951999	1.0	1.0
+64	Retrograde endocannabinoid signaling_Homo sapiens_hsa04723	2/83	GRIA4,ITPR3	0.3984493549881223	1.0	1.0
+65	Oxytocin signaling pathway_Homo sapiens_hsa04921	3/139	TRPM2,ITPR3,ACTG1	0.4025197438356282	1.0	1.0
+66	Alanine, aspartate and glutamate metabolism_Homo sapiens_hsa00250	1/31	ADSSL1	0.4029082327445684	1.0	1.0
+67	Base excision repair_Homo sapiens_hsa03410	1/31	NEIL1	0.4029082327445684	1.0	1.0
+68	Circadian entrainment_Homo sapiens_hsa04713	2/84	GRIA4,ITPR3	0.4042384031208359	1.0	1.0
+69	Mineral absorption_Homo sapiens_hsa04978	1/33	HEPH	0.42246733074309856	1.0	1.0
+70	Carbohydrate digestion and absorption_Homo sapiens_hsa04973	1/34	MGAM	0.4320062147935969	1.0	1.0
+71	Chemokine signaling pathway_Homo sapiens_hsa04062	3/146	FGR,CHUK,CCL16	0.4332972147558915	1.0	1.0
+72	Glucagon signaling pathway_Homo sapiens_hsa04922	2/90	PGAM2,ITPR3	0.43839116403281714	1.0	1.0
+73	Starch and sucrose metabolism_Homo sapiens_hsa00500	1/36	MGAM	0.45061572785659443	1.0	1.0
+74	Glycine, serine and threonine metabolism_Homo sapiens_hsa00260	1/36	PGAM2	0.45061572785659443	1.0	1.0
+75	Influenza A_Homo sapiens_hsa05164	3/150	FDPS,MAVS,ACTG1	0.45062634845483895	1.0	1.0
+76	T cell receptor signaling pathway_Homo sapiens_hsa04660	2/94	CBL,CHUK	0.4605615463816608	1.0	1.0
+77	Malaria_Homo sapiens_hsa05144	1/39	CSF3	0.4773973165859948	1.0	1.0
+78	Hepatitis C_Homo sapiens_hsa05160	2/100	CHUK,MAVS	0.49284106067277617	1.0	1.0
+79	Cysteine and methionine metabolism_Homo sapiens_hsa00270	1/41	TAT	0.4945251556879738	1.0	1.0
+80	Glutathione metabolism_Homo sapiens_hsa00480	1/41	OPLAH	0.4945251556879738	1.0	1.0
+81	Vasopressin-regulated water reabsorption_Homo sapiens_hsa04962	1/41	DCTN2	0.4945251556879738	1.0	1.0
+82	Pathways in cancer_Homo sapiens_hsa05200	6/342	CBL,CHUK,WNT8A,WNT6,LAMA2,KLK3	0.4964193752938091	1.0	1.0
+83	Glutamatergic synapse_Homo sapiens_hsa04724	2/101	GRIA4,ITPR3	0.49810206999621187	1.0	1.0
+84	Insulin resistance_Homo sapiens_hsa04931	2/101	PPP1R3A,TBC1D4	0.49810206999621187	1.0	1.0
+85	Aminoacyl-tRNA biosynthesis_Homo sapiens_hsa00970	1/42	NARS2	0.5028782167576497	1.0	1.0
+86	Arginine and proline metabolism_Homo sapiens_hsa00330	1/42	ARG1	0.5028782167576497	1.0	1.0
+87	Thyroid hormone signaling pathway_Homo sapiens_hsa04919	2/103	ACTG1,TBC1D4	0.5085192555537976	1.0	0.999702627395534
+88	Oocyte meiosis_Homo sapiens_hsa04114	2/106	PTTG1,ITPR3	0.5238789728128114	1.0	1.0
+89	Oxidative phosphorylation_Homo sapiens_hsa00190	2/108	TCIRG1,NDUFB2	0.5339387328072402	1.0	1.0
+90	Carbon metabolism_Homo sapiens_hsa01200	2/109	PGAM2,TKT	0.5389140105357597	1.0	1.0
+91	Toxoplasmosis_Homo sapiens_hsa05145	2/111	LAMA2,CHUK	0.548754543231249	1.0	1.0
+92	Fanconi anemia pathway_Homo sapiens_hsa03460	1/48	FANCG	0.5501866510291319	1.0	1.0
+93	Wnt signaling pathway_Homo sapiens_hsa04310	2/112	WNT6,WNT8A	0.5536195162338999	1.0	1.0
+94	Measles_Homo sapiens_hsa05162	2/112	CHUK,MAVS	0.5536195162338999	1.0	1.0
+95	Pathogenic Escherichia coli infection_Homo sapiens_hsa05130	1/49	ACTG1	0.5576232695700537	1.0	1.0
+96	Signaling pathways regulating pluripotency of stem cells_Homo sapiens_hsa04550	2/113	WNT6,WNT8A	0.5584474632329325	1.0	0.9858307259111972
+97	Dopaminergic synapse_Homo sapiens_hsa04728	2/113	GRIA4,ITPR3	0.5584474632329325	1.0	0.9858307259111972
+98	AMPK signaling pathway_Homo sapiens_hsa04152	2/113	MLYCD,TSC1	0.5584474632329325	1.0	0.9858307259111972
+99	Huntington's disease_Homo sapiens_hsa05016	3/177	DCTN2,NDUFB2,DNAH17	0.5609648225851455	1.0	0.9704691430723017
+100	Legionellosis_Homo sapiens_hsa05134	1/51	CLK1	0.5721310967745603	1.0	0.9799869281386033
+101	Parkinson's disease_Homo sapiens_hsa05012	2/117	NDUFB2,UBE2G2	0.5773870828232162	1.0	0.9792937777295725
+102	Renin secretion_Homo sapiens_hsa04924	1/52	ITPR3	0.5792062910098686	1.0	0.9681419163739834
+103	NOD-like receptor signaling pathway_Homo sapiens_hsa04621	1/52	CHUK	0.5792062910098686	1.0	0.9681419163739834
+104	Synaptic vesicle cycle_Homo sapiens_hsa04721	1/53	TCIRG1	0.5861649418568176	1.0	0.9657765232498041
+105	Platelet activation_Homo sapiens_hsa04611	2/119	ITPR3,ACTG1	0.5866326171182408	1.0	0.9574287052967515
+106	Axon guidance_Homo sapiens_hsa04360	2/120	LRRC4,PLXNA2	0.5911991570757313	1.0	0.9558640577018833
+107	Acute myeloid leukemia_Homo sapiens_hsa05221	1/54	CHUK	0.5930089615423011	1.0	0.9455350262379547
+108	Taste transduction_Homo sapiens_hsa04742	1/54	ITPR3	0.5930089615423011	1.0	0.9455350262379547
+109	Ras signaling pathway_Homo sapiens_hsa04014	3/189	CHUK,RASA2,RIN1	0.6055324083726272	1.0	0.9523373331678592
+110	Long-term depression_Homo sapiens_hsa04730	1/57	ITPR3	0.6128718909346378	1.0	0.9551967309161472
+111	mTOR signaling pathway_Homo sapiens_hsa04150	1/58	TSC1	0.6192758914302302	1.0	0.9565600822984807
+112	Amphetamine addiction_Homo sapiens_hsa05031	1/59	GRIA4	0.6255743634617994	1.0	0.9577377422910734
+113	Hepatitis B_Homo sapiens_hsa05161	2/128	CHUK,MAVS	0.6263815038943386	1.0	0.9505614050326365
+114	Adipocytokine signaling pathway_Homo sapiens_hsa04920	1/60	CHUK	0.6317690392204283	1.0	0.9422072740097767
+115	Long-term potentiation_Homo sapiens_hsa04720	1/60	ITPR3	0.6317690392204283	1.0	0.9422072740097767
+116	Thyroid hormone synthesis_Homo sapiens_hsa04918	1/60	ITPR3	0.6317690392204283	1.0	0.9422072740097767
+117	Gastric acid secretion_Homo sapiens_hsa04971	1/61	ITPR3	0.6378616226107077	1.0	0.9351700060309528
+118	Prolactin signaling pathway_Homo sapiens_hsa04917	1/62	GALT	0.6438537896511578	1.0	0.9360227362155488
+119	Pancreatic cancer_Homo sapiens_hsa05212	1/63	CHUK	0.6497471889589809	1.0	0.9367188640825307
+120	PI3K-Akt signaling pathway_Homo sapiens_hsa04151	4/269	CSF3,LAMA2,CHUK,TSC1	0.6505733946764802	1.0	0.9301586551986039
+121	Central carbon metabolism in cancer_Homo sapiens_hsa05230	1/64	PGAM2	0.6555434422584123	1.0	0.9295820943500437
+122	MicroRNAs in cancer_Homo sapiens_hsa05206	2/137	ZEB2,RDX	0.663112744385163	1.0	0.9326707705579934
+123	B cell receptor signaling pathway_Homo sapiens_hsa04662	1/66	CHUK	0.6668508651688898	1.0	0.9303645135017575
+124	Adherens junction_Homo sapiens_hsa04520	1/68	ACTG1	0.6777885089358826	1.0	0.9343220083339258
+125	Rheumatoid arthritis_Homo sapiens_hsa05323	1/68	TCIRG1	0.6777885089358826	1.0	0.9343220083339258
+126	Aldosterone synthesis and secretion_Homo sapiens_hsa04925	1/71	ITPR3	0.6935278834222427	1.0	0.9447269593074644
+127	RNA degradation_Homo sapiens_hsa03018	1/72	BTG1	0.6986022545684227	1.0	0.9442046096901339
+128	ECM-receptor interaction_Homo sapiens_hsa04512	1/73	LAMA2	0.7035929315027379	1.0	0.9399349586870553
+129	Insulin secretion_Homo sapiens_hsa04911	1/73	ITPR3	0.7035929315027379	1.0	0.9399349586870553
+130	Alzheimer's disease_Homo sapiens_hsa05010	2/149	ITPR3,NDUFB2	0.7075171346846547	1.0	0.9343546893163761
+131	NF-kappa B signaling pathway_Homo sapiens_hsa04064	1/75	CHUK	0.7133286806477361	1.0	0.9348928920610481
+132	Salmonella infection_Homo sapiens_hsa05132	1/76	ACTG1	0.7180764358531502	1.0	0.9340392737037216
+133	Protein processing in endoplasmic reticulum_Homo sapiens_hsa04141	2/155	PPP1R15A,UBE2G2	0.727833763973581	1.0	0.9396659788614143
+134	GnRH signaling pathway_Homo sapiens_hsa04912	1/79	ITPR3	0.7318548643657667	1.0	0.9378584558168713
+135	ErbB signaling pathway_Homo sapiens_hsa04012	1/80	CBL	0.7362969490355189	1.0	0.9331822137959324
+136	Gap junction_Homo sapiens_hsa04540	1/80	ITPR3	0.7362969490355189	1.0	0.9331822137959324
+137	mRNA surveillance pathway_Homo sapiens_hsa03015	1/83	MSI1	0.7491881814869811	1.0	0.9391996767916502
+138	Herpes simplex infection_Homo sapiens_hsa05168	2/163	CHUK,MAVS	0.7530576097028107	1.0	0.9372587516445053
+139	Toll-like receptor signaling pathway_Homo sapiens_hsa04620	1/84	CHUK	0.7533442028915082	1.0	0.930918193573078
+140	Serotonergic synapse_Homo sapiens_hsa04726	1/89	ITPR3	0.773117581743435	1.0	0.9485768910752785
+141	Inflammatory mediator regulation of TRP channels_Homo sapiens_hsa04750	1/90	ITPR3	0.7768785526916	1.0	0.9464788001101887
+142	Neuroactive ligand-receptor interaction_Homo sapiens_hsa04080	2/172	MLNR,GRIA4	0.7790095480663904	1.0	0.942438124583815
+143	Estrogen signaling pathway_Homo sapiens_hsa04915	1/91	ITPR3	0.7805774195045911	1.0	0.9345321354622441
+144	Longevity regulating pathway - mammal_Homo sapiens_hsa04211	1/91	TSC1	0.7805774195045911	1.0	0.9345321354622441
+145	Phosphatidylinositol signaling system_Homo sapiens_hsa04070	1/92	ITPR3	0.7842152036391715	1.0	0.9292413029423059
+146	Pyrimidine metabolism_Homo sapiens_hsa00240	1/93	PNP	0.7877929099521515	1.0	0.9271304314402872
+147	Rap1 signaling pathway_Homo sapiens_hsa04015	2/177	SIPA1L1,ACTG1	0.7923745276127463	1.0	0.9262215761959804
+148	Leukocyte transendothelial migration_Homo sapiens_hsa04670	1/95	ACTG1	0.7947720262156317	1.0	0.9166370702353619
+149	Chagas disease (American trypanosomiasis)_Homo sapiens_hsa05142	1/95	CHUK	0.7947720262156317	1.0	0.9166370702353619
+150	Vascular smooth muscle contraction_Homo sapiens_hsa04270	1/95	ITPR3	0.7947720262156317	1.0	0.9166370702353619
+151	Choline metabolism in cancer_Homo sapiens_hsa05231	1/97	TSC1	0.801522482278881	1.0	0.9092681274376814
+152	HIF-1 signaling pathway_Homo sapiens_hsa04066	1/97	NPPA	0.801522482278881	1.0	0.9092681274376814
+153	Cholinergic synapse_Homo sapiens_hsa04725	1/98	ITPR3	0.8048143045169869	1.0	0.9041095758534983
+154	Focal adhesion_Homo sapiens_hsa04510	2/184	LAMA2,ACTG1	0.809889017629685	1.0	0.9039406454834549
+155	TNF signaling pathway_Homo sapiens_hsa04668	1/100	CHUK	0.8112356875037179	1.0	0.8996395765265589
+156	Epstein-Barr virus infection_Homo sapiens_hsa05169	2/193	FGR,CHUK	0.8304721910030581	1.0	0.9151062996403124
+157	Cell adhesion molecules (CAMs)_Homo sapiens_hsa04514	1/107	LRRC4	0.832097740453023	1.0	0.9110943613821075
+158	Regulation of actin cytoskeleton_Homo sapiens_hsa04810	2/194	RDX,ACTG1	0.8326312857407521	1.0	0.9059447322839629
+159	Tight junction_Homo sapiens_hsa04530	1/111	ACTG1	0.8429704893769485	1.0	0.9114618416388256
+160	Cell cycle_Homo sapiens_hsa04110	1/114	PTTG1	0.8506621760101192	1.0	0.9140655680108735
+161	Osteoclast differentiation_Homo sapiens_hsa04380	1/116	CHUK	0.8555802929407181	1.0	0.9108639426384262
+162	FoxO signaling pathway_Homo sapiens_hsa04068	1/116	CHUK	0.8555802929407181	1.0	0.9108639426384262
+163	Phospholipase D signaling pathway_Homo sapiens_hsa04072	1/128	TSC1	0.8818792561064097	1.0	0.9302750689415176
+164	MAPK signaling pathway_Homo sapiens_hsa04010	2/223	CHUK,RASA2	0.8853695950574075	1.0	0.9282966057268576
+165	Olfactory transduction_Homo sapiens_hsa04740	1/130	OR10C1	0.8857728259938075	1.0	0.9231246921501728
+166	Non-alcoholic fatty liver disease (NAFLD)_Homo sapiens_hsa04932	1/136	NDUFB2	0.8967029959823148	1.0	0.9289198700894639
+167	Endocytosis_Homo sapiens_hsa04144	2/240	CBL,IQSEC2	0.9086805433445284	1.0	0.9357246071345442
+168	cGMP-PKG signaling pathway_Homo sapiens_hsa04022	1/144	ITPR3	0.9096727820271017	1.0	0.9312034987614709
+169	Calcium signaling pathway_Homo sapiens_hsa04020	1/146	ITPR3	0.9126532863019318	1.0	0.9287589325307893
+170	Tuberculosis_Homo sapiens_hsa05152	1/149	TCIRG1	0.9169413482221611	1.0	0.9276658084352858
+171	cAMP signaling pathway_Homo sapiens_hsa04024	1/166	GRIA4	0.937566114074184	1.0	0.9430170798536851
+172	Viral carcinogenesis_Homo sapiens_hsa05203	1/168	RASA2	0.9396291654851381	1.0	0.9396291654851381

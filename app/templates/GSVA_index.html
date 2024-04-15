@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% block title %}
+    GSVA
+{% endblock %} 
+{% block content %} 
+<div class="container" style="width: 98%;"> 
+ <div class="row"> 
+  <div class="col-md-6 col-md-offset-3"> 
+   <div id="upload_form1"> 
+    <br /> 
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+      <p class="file-error-message" style="display: block;">
+        {{ messages[0] }}
+      </p> 
+      {% endif %}
+    {% endwith %}
+     <h1 style="display: block; margin-left: auto; margin-right: auto; font-size: 24px; letter-spacing: 0.18rem; margin-top: 0px; margin-bottom: 0px;">Gene set variation analysis</h1>
+     <p>GSVA calculates gene set enrichment scores (GSVA scores) for each sample using the z-statistic matrix.<br>
+      Differential expression analysis is then conducted on these GSVA scores using limma, aiming to identify differentially regulated pathways across sample groups. Finally, the differential pathway activities across sample groups are visualized using a heatmap.</p>
+     <img src="{{ url_for('lib.static', filename='img/gsva_select_pathway.png') }}" class="img-fluid" style="max-width: 90%; height: auto;">
+     <div class="row">
+      <form action="{{url_for('GSVA.result')}}" class="form-group" role="form" method="post" id="formID" enctype="multipart/form-data">
+        <div class="control-group" style="margin-bottom: 24px">
+          <label for="z_statistic_matrix" class="control-label">
+            <b>z-statistic file</b><br><p>Output file z_statistic_table.txt from zMAP. Example file: <a href="{{url_for('manual.example_data',example_file='HVP_example_z_statistic_table.txt')}}">HVP_example_z_statistic_table.txt</a></p>  
+          </label>
+          <input id="z_statistic_matrix" name="z_statistic_matrix" type="file" accept=".txt" data-show-preview="false" class="file-loading" />
+          <p id="errorBlock1"></p>
+        </div>
+        <div class="control-group" style="margin-bottom: 24px">
+          <label for="sample_info" class="control-label">
+            <b>Sample information file</b><br><p>The sample information file is a three-column, tab-delimited file with the first row identifying the columns. The column names are Sample_id, Sample_condition, and MS_run. Example file: <a href="{{url_for('manual.example_data',example_file='GSVA_example_sample_info.txt')}}">GSVA_example_sample_info.txt</a></p> 
+          </label>
+          <input id="sample_info" name="sample_info" type="file" accept=".txt" data-show-preview="false" class="file-loading" />
+          <p id="errorBlock2"></p>
+        </div>
+        <div class="control-group" style="margin-bottom: 24px"> 
+          <label class="control-label">
+            <b>Top N(number) Pathways</b><br><p>Extract a table of the top-ranked differentially regulated pathways across sample groups.</p>
+          </label> 
+          <div class="controls "> 
+          <input type="number" class="form-control" required="" min="5" max="50" name="cluster_number_for_top_proteins" value="20" /> 
+          </div> 
+        </div>
+        <div class="control-group" style="margin-bottom: 24px"> 
+          <label class="control-label"><b>FDR</b><p>(BH-adjusted pvalue cutoff for significance.)</p></label> 
+          <div class="controls "> 
+          <input type="number" class="form-control" required="" step="any" min="0" max="0.2" name="fdr" value="0.05" /> 
+          </div> 
+        </div> 
+
+       <button type="reset" class="btn btn-primary"  style="background-color: #CA8115;height: 45px;width: 80px;float: left;margin-left: 50px">Reset</button> 
+       <button type="submit" class="btn btn-primary" style="background-color: #27357e;height: 45px;width: 80px;float: right;margin-right: 20px">Submit</button>
+     </form>
+     </div>
+    <br /> 
+    <br /> 
+   </div> 
+  </div> 
+ </div> 
+</div> 
+<script>
+
+
+$(document).on('ready', function() {
+  //  $("button[type=reset]").prop('disabled',true);
+   // $("button[type=submit]").prop('disabled',true);
+    $("#z_statistic_matrix").fileinput({
+        showUpload:false,
+        showRemove:false,
+        showClose:false,
+        elErrorContainer: "#errorBlock1"
+
+    }).on("filebatchselected",function(event,files){
+            $(this).fileinput("upload");
+    });
+    $("#sample_info").fileinput({
+        showUpload:false,
+        showRemove:false,
+        showClose:false,
+        elErrorContainer: "#errorBlock2"
+
+    }).on("filebatchselected",function(event,files){
+            $(this).fileinput("upload");
+    });
+
+    $("input").not("[type=submit]").jqBootstrapValidation();
+});
+
+
+
+</script>  
+{% endblock%} 

@@ -1,0 +1,12 @@
+Cervical Squamous Cell Carcinoma	#1f77b4
+Cervical Adenocarcinoma	#ff7f0e
+Adenosquamous	#2ca02c
+Cervical Small Cell Carcinoma	#d62728
+Other	#d62728
+I	#ffe4e1
+II	#ff7f50
+III/IV	#964b00
+Grade1&2	#0000ff
+Grade3	#ff0000
+Yes	#000000
+No	#808080

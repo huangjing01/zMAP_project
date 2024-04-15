@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% block title %}
+    Mutation Association
+{% endblock %}
+{% block content %}
+
+<div class="container" style="width: 98%;"> 
+<br /><br />
+<div class="row"> 
+    <div class="col-md-6 col-md-offset-3">
+        <h1 style="display: block; margin-left: auto; margin-right: auto; font-size: 24px; letter-spacing: 0.18rem; margin-top: 0px;">Association with mutation data: task <span id ="task_status">running</span></h1>
+        <p>The job progress state is shown below.</p>
+        <div id="process_info" style="height: 300px; overflow-y: auto;margin-bottom: 50px"><br/>
+        </div>
+        <div id="final_res"></div>
+    </div>
+
+</div> 
+</div>
+
+<script>
+
+
+
+var state_tmp = new Array();
+var status_tmp_e = '';
+
+var task_id = '{{id}}';
+status_url = "{{ url_for('AssMutation.taskstatus', task_id='ADDSHARE1') }}".replace("ADDSHARE1", task_id);
+update_progress(status_url,$("#process_info"));
+
+function update_progress(status_url, status_div) {
+    $.getJSON(status_url, function(data) {
+        running_status = data['status'];
+        if(running_status != state_tmp){
+            if(state_tmp.length ==0 ){
+                for(j = 0,len=running_status.length; j < len; j++) {
+                    var para = document.createElement("p");
+                    status_tmp_e = data['status'][j];
+                    para.innerHTML = status_tmp_e;
+                    $(status_div).append(para);
+                    $('#process_info>div>p').css("margin","1px");
+                }
+
+            }else{
+                for(j = state_tmp.length-1,len=running_status.length; j < len; j++){
+                    if(data['status'][j] != status_tmp_e){
+                        var para = document.createElement("p");
+                        status_tmp_e = data['status'][j];
+                        para.innerHTML = status_tmp_e;
+                        $(status_div).append(para);
+                        $('#process_info>div>p').css("margin","1px");
+                    }                        
+                }
+
+            }
+            state_tmp = running_status;                
+        }
+        if (data['state'] != 'PENDING' && data['state'] != 'PROGRESS') {
+            if ('result' in data) {
+                var dtn = document.createElement("a");
+                dtn.innerHTML = "AssMutation results";
+                dtn.className += "btn btn-primary";
+                var fileid = '{{proc_id}}';
+                dtn.setAttribute('href',"{{url_for('AssMutation.fetch_filedir',filedir='ADDSHARE1')}}".replace("ADDSHARE1",fileid)+".zip");
+                $("#final_res").append(dtn);
+
+                document.getElementById('task_status').innerHTML="completed";
+            }
+            else{
+                $(status_div).append(para);
+            }
+        }
+        else {
+            update_progress(status_url, status_div);         
+        }
+    
+    });
+};
+
+if ( window.history.replaceState ) {
+    window.history.replaceState( null, null, window.location.href );
+}
+
+</script>
+
+
+{% endblock%} 

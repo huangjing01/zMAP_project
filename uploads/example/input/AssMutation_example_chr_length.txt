@@ -1,0 +1,1 @@
+/home/shao/zMap/app/templates/input_file/reverse_zMAP/hg19_chrom_sizes_remove_xy.txt

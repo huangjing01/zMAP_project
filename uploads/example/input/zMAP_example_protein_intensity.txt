@@ -1,0 +1,1 @@
+/home/shao/zMap/app/templates/input_file/zMAP/raw_protein_intensity_in_gene_level_for_web.txt

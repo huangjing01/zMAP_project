@@ -1,0 +1,1 @@
+/home/shao/zMap/app/templates/input_file/reverse_zMAP/association_z_statistic_with_survival/results_cox_regression.txt

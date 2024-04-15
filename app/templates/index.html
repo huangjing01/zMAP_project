@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    index
+{% endblock %}
+
+{% block content %}
+
+<div class="container" style="width: 98%;">
+<br>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+		<h1 class="site__title" style="font-size: 30px;font-weight: 350;">zMAP - Proteomics Analysis Platform</h1>
+             <p class="site__statement" style="font-size: 16px; margin-bottom: 0px; text-align: justify;">
+                   zMAP, a new computational framework developed for <b>simultaneously comparing multiple proteomic profiles and downstream functional analysis of detected protein expression changes</b>. <br><br></p>
+	<img src="{{ url_for('lib.static', filename='img/zMAP_overview.png') }}" class="img-fluid" style="max-width: 80%; height: auto; text-align: center">       
+            <p>Isobaric labeling-based mass spectrometry (ILMS) has been widely used to quantify, on a proteome-wide scale, the relative protein abundance in different biological conditions. Large-scale proteomic studies based on ILMS, however, typically involve multiple runs of mass spectrometry (MS), bringing great computational difficulty to the simultaneous comparison and other integration analyses of all ILMS samples.
+                   <br>
+                   <br>We present zMAP, a toolset that <b>makes ILMS intensities comparable across MS runs</b> by modeling the associated mean-variance dependence and accordingly <b>applying a variance stabilizing z-transformation</b>. Specific efforts have been made to render the model fitting procedure resistant to underlying hypervariable proteins. Two case studies demonstrate the effectiveness of zMAP in handling large-scale ILMS data sets. Specifically, the transformed z-statistics, as a new kind of measurements of protein abundance, have effectively unlocked a broad range of integration analyses that cannot otherwise be applied on original ILMS intensities.</p>
+                    
+                    
+            <br>
+            <span class="input-group-btn">
+                <a href="{{url_for('zMap.index') }}"><button type="submit" class="btn btn-primary" style="background-color: #27357e; border-color: #27357e;margin-left: 10px;height: 45px">Get started <i class="fa fa-chevron-right u-line-height-single"></i></button></a>
+
+                <a href="{{url_for('manual.home') }}"><button type="submit" class="btn btn-primary" style="background-color: #27357e; border-color: #27357e;margin-left: 10px;height: 45px">Learn More</button></a>
+
+
+            </span>
+            
+            <br>
+            <p style="font-size: 16px; max-width: 820px; margin-bottom: 0px; text-align: justify;">Query your existed process id</p>
+            <br>
+             <form action="{{url_for('index.query')}}" method="POST" name="form-search" target="_blank">
+                <div class="input-group">
+                    <input id="query_id" class="form-control input-lg" style="width: 100%; border-radius:25px 0px 0px 25px;height: 45px; font-size: 15px;" name="query_id" placeholder="Search your process id ..." type="text">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" type="submit" style="padding-left: 15px; padding-right: 15px; border-radius:0px 25px 25px 0px; height: 45px; background-color: #27357e; border-color: #27357e;">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </span>
+                </div>
+                                                            
+            </form>
+            <br>
+        </div>
+
+
+
+
+    </div>
+</div>
+
+{% endblock %}

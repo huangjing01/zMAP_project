@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+{% block title %}
+    Cluster
+{% endblock %} 
+{% block content %} 
+<div class="container" style="width: 98%;"> 
+ <div class="row"> 
+  <div class="col-md-6 col-md-offset-3"> 
+   <div id="upload_form1"> 
+    <br /> 
+
+    {% with messages = get_flashed_messages() %}
+     	{% if messages %}
+     	<p class="file-error-message" style="display: block;">
+       	{{ messages[0] }}
+     	</p> 
+      {% endif %}
+    {% endwith %}
+     <h1 style="display: block; margin-left: auto; margin-right: auto; font-size: 24px; letter-spacing: 0.18rem; margin-top: 0px; margin-bottom: 0px;">Association with mutation data</h1>
+     
+<!--     <p>To pick out the proteins that were associated with non-silent somatic mutations, QTL analysis is used. Somatic mutations in at least 10 samples (Users determine based on the number of samples.). 
+	 Then, we pick out the proteins whose expression was detected in at least half of the tumor samples. Finally, for each candidate gene-protein pair, 
+	 we performed a regression of the protein expression against the mutation status of the gene using MatrixEQTL R package4, by fitting the following linear model:.</p> -->
+	 
+	 <p>To pick out the proteins that were associated with non-silent somatic mutations, QTL analysis is used. Somatic mutations in at least 10 samples (Users determine based on the number of samples). 
+	 Then, we pick out the proteins whose expression was detected in at least half of the tumor samples. Finally, for each candidate gene-protein pair, 
+	 we performed a regression of the protein expression against the mutation status of the gene using MatrixEQTL R package, by fitting the following linear model: Y = α + βX + γS + δA+ε. 
+	 Here, Y was a vector of the z-statistics of the protein in tumor samples; X was the non-silent somatic mutation indicators of the gene; 
+	 S and A referred to the sex and age variables, respectively, as well as other control variables; ε was a vector of independent and identically distributed noise variables; 
+	 α, β, γ, and δ were unknown parameters. This model was fitted by applying the least squares method, 
+	 and the null hypothesis β=0 was then tested by applying the t-test.</p>
+	 
+	 
+     <img src="{{ url_for('lib.static', filename='img/association_with_mutation_data.png') }}" class="img-fluid" style="max-width: 90%; height: auto;">
+
+     <div class="row">
+        <form action="{{url_for('AssMutation.result')}}" class="form-group" role="form" method="post" id="formID" enctype="multipart/form-data">
+        <div class="control-group" style="margin-bottom: 24px">
+          <label for="z_statistic_matrix" class="control-label">
+    <!--        <b>Z-statistic file</b><br><p>please supply reverse-zMAP output z-statistics file. Example file: <a href="">z_statistics_table.txt</a></p> -->
+			
+		    <b>z-statistic file</b><br><p>It is a tab-delimited file with samples in columns and proteins in rows. Example file: <a href="">AssMutation_example_z_statistic_table.txt</a></p>
+			
+          </label>
+          <input id="z_statistic_matrix" name="z_statistic_matrix" type="file" accept=".txt" data-show-preview="false" class="file-loading" />
+          <p id="errorBlock1"></p>
+        </div>
+        <div class="control-group" style="margin-bottom: 24px">
+          <label for="mutation_f" class="control-label">
+         <!--   <b>Mutation file</b><br><p>Tab-delimited file where rows represent genes, columns represent samples, and values are coded as 1 for non-silent mutations and 0 for no non-silent mutations. Example file: <a href="">mut_table.txt</a></p> -->
+			<b>Mutation file</b><br><p>Tab-delimited file where rows represent genes, columns represent samples, and values are coded as 1 for non-silent mutations and 0 for no non-silent mutations. Example file: <a href="">AssMutation_example_mutation.txt</a></p>
+ 
+          </label>
+          <input id="mutation_f" name="mutation_f" type="file" accept=".txt" data-show-preview="false" class="file-loading" />
+          <p id="errorBlock2"></p>
+        </div>
+        
+        <div class="control-group" style="margin-bottom: 24px">
+          <label for="covariates_f" class="control-label">
+<!--            <b>Covariates file</b><br><p>The file includes additional covariates. Columns represent samples, while rows encompass various additional covariates, including age, sex, and others. The values inside must be numerical. Example file: <a href="">covariates_table.txt</a></p> -->
+			<b>Covariates file</b><br><p>The file includes additional covariates. Columns represent samples, while rows encompass various additional covariates, including age, sex, and others. The values inside must be numerical. Example file: <a href="">AssMutation_example_covariates.txt</a></p>
+			
+          </label>
+          <input id="covariates_f" name="covariates_f" type="file" accept=".txt" data-show-preview="false" class="file-loading" />
+          <p id="errorBlock3"></p>
+        </div>
+        <div class="control-group" style="margin-bottom: 24px">
+          <label for="gene_tss_location" class="control-label">
+          <!--  <b>Gene position file</b><br><p>The file containing transcription start site information for all genes in the genome. It contains three columns with the column names being gene, chromosome, and tss respectively. Example file: <a href="">z_statistics_table.txt</a></p> -->
+			    <b>Gene location file</b><br><p>The file containing transcription start site information for all genes in the genome. It contains three columns with the column names being gene, chromosome, and tss respectively. Example file: <a href="">AssMutation_example_gene_location.txt</a></p>
+			
+          </label>
+          <input id="gene_tss_location" name="gene_tss_location" type="file" accept=".txt" data-show-preview="false" class="file-loading" />
+          <p id="errorBlock4"></p>
+        </div>
+        <div class="control-group" style="margin-bottom: 24px">
+          <label for="chr_length" class="control-label">
+<!--            <b>Chromosome length file</b><br><p>Tab-delimited file contains two columns, chromosome and length. Example file: <a href="">z_statistics_table.txt</a></p> -->
+			<b>Chromosome length file</b><br><p>Tab-delimited file contains two columns, chromosome and length. Example file: <a href="">AssMutation_example_chr_length.txt</a></p>
+			
+          </label>
+          <input id="chr_length" name="chr_length" type="file" accept=".txt" data-show-preview="false" class="file-loading" />
+          <p id="errorBlock5"></p>
+        </div>
+        <div class="control-group" style="margin-bottom: 24px"> 
+<!--          <label class="control-label"><b>FDR</b>(false discovery rate)</label> -->
+          <label class="control-label"><b>FDR</b>(BH-adjusted p-value cutoff)</label>		  
+          <div class="controls "> 
+          <input type="number" class="form-control" required="" min="0" max="0.2" name="fdr" value="0.01" /> 
+          </div> 
+        </div> 
+
+         <button type="reset" class="btn btn-primary"  style="background-color: #CA8115;height: 45px;width: 80px;float: left;margin-left: 50px">Reset</button> 
+         <button type="submit" class="btn btn-primary" style="background-color: #27357e;height: 45px;width: 80px;float: right;margin-right: 20px">Submit</button>
+       </form>
+     </div>
+    <br /> 
+    <br /> 
+   </div> 
+  </div> 
+ </div> 
+</div> 
+<script>
+
+$(document).on('ready', function() {
+  //  $("button[type=reset]").prop('disabled',true);
+   // $("button[type=submit]").prop('disabled',true);
+    $("#mutation_f").fileinput({
+        showUpload:false,
+        showRemove:false,
+        showClose:false,
+        elErrorContainer: "#errorBlock1"
+
+    });
+    $("#z_statistic_matrix").fileinput({
+        showUpload:false,
+        showRemove:false,
+        showClose:false,
+        elErrorContainer: "#errorBlock2"
+
+    });
+    $("#covariates_f").fileinput({
+        showUpload:false,
+        showRemove:false,
+        showClose:false,
+        elErrorContainer: "#errorBlock3"
+
+    });
+    $("#gene_tss_location").fileinput({
+        showUpload:false,
+        showRemove:false,
+        showClose:false,
+        elErrorContainer: "#errorBlock4"
+
+    });
+    $("#chr_length").fileinput({
+        showUpload:false,
+        showRemove:false,
+        showClose:false,
+        elErrorContainer: "#errorBlock5"
+
+    });
+
+
+    $("input").not("[type=submit]").jqBootstrapValidation();
+});
+
+
+
+</script>  
+{% endblock%} 

@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block title %}
+    Surv Analysis
+{% endblock %} 
+{% block content %} 
+<div class="container" style="width: 98%;"> 
+ <div class="row"> 
+  <div class="col-md-6 col-md-offset-3"> 
+   <div id="upload_form1"> 
+    <br /> 
+
+    {% with messages = get_flashed_messages() %}
+     	{% if messages %}
+     	<p class="file-error-message" style="display: block;">
+       	{{ messages[0] }}
+     	</p> 
+      {% endif %}
+    {% endwith %}
+     <h1 style="display: block; margin-left: auto; margin-right: auto; font-size: 24px; letter-spacing: 0.18rem; margin-top: 0px; margin-bottom: 0px;">Survival analysis</h1>
+     
+     <p>Plots the Kaplan-Meier survival curves and assesses the significance of survival differences among subgroups using log-rank test.</p>
+     <img src="{{ url_for('lib.static', filename='img/survival_analysis.png') }}" class="img-fluid" style="max-width: 90%; height: auto;">
+
+     <div class="row">
+        <form action="{{url_for('Surv.result')}}" class="form-group" role="form" method="post" id="formID" enctype="multipart/form-data">
+         <div class="control-group" style="margin-bottom: 24px">
+            <label for="input-1" class="control-label">
+              <b>Survival and group file</b><br><p>It is a four-columns, tab-delimited file with the first row identifying the columns. The column names are Sample_id, survival_time, death_or_not, and group. Example file: <a href="{{url_for('manual.example_data',example_file='Surv_example_survival_group.txt')}}">Surv_example_survival_group.txt</a></p>              
+            </label>
+            <input id="input-1" name="input-1" type="file" accept=".txt" data-show-preview="false" class="file-loading" />
+            <p id="errorBlock1"></p>
+          </div>
+
+         <button type="reset" class="btn btn-primary"  style="background-color: #CA8115;height: 45px;width: 80px;float: left;margin-left: 50px">Reset</button> 
+         <button type="submit" class="btn btn-primary" style="background-color: #27357e;height: 45px;width: 80px;float: right;margin-right: 20px">Submit</button>
+       </form>
+     </div>
+    <br /> 
+    <br /> 
+   </div> 
+  </div> 
+ </div> 
+</div> 
+<script>
+
+$(document).on('ready', function() {
+  //  $("button[type=reset]").prop('disabled',true);
+   // $("button[type=submit]").prop('disabled',true);
+    $("#input-1").fileinput({
+        showUpload:false,
+        showRemove:false,
+        showClose:false,
+        elErrorContainer: "#errorBlock1"
+
+    });
+});
+
+
+
+</script>  
+{% endblock%} 

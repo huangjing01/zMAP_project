@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+{% block title %}
+    reverse-zMAP
+{% endblock %}
+{% block content %}
+
+<div class="container" style="width: 98%;"> 
+<br /><br />
+<div class="row"> 
+    <div class="col-md-6 col-md-offset-3">
+        <h1 style="display: block; margin-left: auto; margin-right: auto; font-size: 24px; letter-spacing: 0.18rem; margin-top: 0px;">reverse-zMAP: task <span id ="task_status">running</span></h1>
+        <p>You can search by job id : <span id="job_id"></span> to access the result later.</p> 
+        {% if email != "" %} 
+           <p>After the job is finished, we will send a email to {{email}}.</p> 
+        {% endif %}
+        <p>The job progress state is shown below.</p>
+        <div id="process_info" style="height: 300px; overflow-y: auto;margin-bottom: 50px"><br/></div>
+        <div id="final_res"></div>
+    </div>
+
+</div> 
+</div>
+  <script>
+var state_tmp = new Array();
+var status_tmp_e = '';
+curr_url = window.location.href;
+url_name = curr_url.split("/");
+ajax_url = url_name[url_name.length-1];
+document.getElementById('job_id').innerHTML=ajax_url;
+
+var task_id = '{{task_id}}';
+status_url = "{{ url_for('reverse_zMap.taskstatus', process_id='ADDSHARE1',task_id='ADDSHARE2') }}".replace("ADDSHARE1", ajax_url).replace("ADDSHARE2",task_id);
+update_progress(status_url,$("#process_info"));
+
+function update_progress(status_url, status_div) {
+    $.getJSON(status_url, function(data) {
+        running_status = data['status'];
+        if(running_status != state_tmp){
+            if(state_tmp.length ==0 ){
+                for(j = 0,len=running_status.length; j < len; j++) {
+                    var para = document.createElement("p");
+                    status_tmp_e = data['status'][j];
+                    para.innerHTML = status_tmp_e;
+                    $(status_div).append(para);
+                    $('#process_info>div>p').css("margin","1px");
+                }
+
+            }else{
+                for(j = state_tmp.length-1,len=running_status.length; j < len; j++){
+                    if(data['status'][j] != status_tmp_e){
+                        var para = document.createElement("p");
+                        status_tmp_e = data['status'][j];
+                        para.innerHTML = status_tmp_e;
+                        $(status_div).append(para);
+                        $('#process_info>div>p').css("margin","1px");
+                    }                        
+                }
+
+            }
+            state_tmp = running_status;                
+        }
+        if (data['state'] != 'PENDING' && data['state'] != 'PROGRESS') {
+            if ('result' in data) {
+                var dtn = document.createElement("a");
+                dtn.innerHTML = "reverse-zMAP result";
+                dtn.className += "btn btn-primary"; 
+                dtn.setAttribute('href',"{{url_for('reverse_zMap.result',process_id='ADDSHARE1')}}".replace("ADDSHARE1",ajax_url)+".zip");
+                $("#final_res").append(dtn);
+/*                $("#final_res").append($('<h4>Step 1 : Normalization</h4><div class="albumSlider" id="qc"><div class="fullview"></div><div class="slider"><div class="button movebackward" title="Upwards"></div><div class="imglistwrap"><ul class="imglist"></ul></div><div class="button moveforward" title="Downwards"></div></div></div><h4>Step 2 : local variance calculation</h4><div class="albumSlider" id="distribution"><div class="fullview"></div><div class="slider"><div class="button movebackward" title="Upwards"></div><div class="imglistwrap"><ul class="imglist"></ul></div><div class="button moveforward" title="Downwards"></div></div></div>'));
+
+
+                $.getJSON("{{url_for('reverse_zMap.image_cls',process_id='ADDSHARE1',image_query='qc')}}".replace("ADDSHARE1",ajax_url),function(data){
+                    filelist = data['id'];
+                    var img_norm_1 = document.createElement("img");
+                    img_norm_1.src = "{{url_for('reverse_zMap.image_index',process_id='ADDSHARE1',image='ADDSHARE2')}}".replace("ADDSHARE1",ajax_url).replace("ADDSHARE2",filelist[0]);
+                    $("#qc .fullview").append(img_norm_1);
+                    for(j = 0,len=filelist.length; j < len; j++) {
+                        var img_norm_li = $("<li></li>")
+                        var img_norm_a = document.createElement("a");
+                        img_norm_a.setAttribute("id","example2");
+                        img_norm_a.href = "{{url_for('reverse_zMap.image_index',process_id='ADDSHARE1',image='ADDSHARE2')}}".replace("ADDSHARE1",ajax_url).replace("ADDSHARE2",filelist[j]);
+                        var img_norm = document.createElement("img");
+                        img_norm.src = "{{url_for('reverse_zMap.image_index',process_id='ADDSHARE1',image='ADDSHARE2')}}".replace("ADDSHARE1",ajax_url).replace("ADDSHARE2",filelist[j]);
+                        img_norm_li.append(img_norm_a);
+                        img_norm_a.append(img_norm);
+                        $("#qc .imglist").append(img_norm_li);
+                    }
+                    $(function(){
+                        $("div.albumSlider").albumSlider();
+                    });
+                    $("a#example2").fancybox({
+                        'overlayShow'   : false,
+                        'transitionIn'  : 'elastic',
+                        'transitionOut' : 'elastic'
+                    });
+
+                });
+                $.getJSON("{{url_for('reverse_zMap.image_cls',process_id='ADDSHARE1',image_query='distribution')}}".replace("ADDSHARE1",ajax_url),function(data){
+                    filelist = data['id'];
+                    var img_norm_1 = document.createElement("img");
+                    img_norm_1.src = "{{url_for('reverse_zMap.image_index',process_id='ADDSHARE1',image='ADDSHARE2')}}".replace("ADDSHARE1",ajax_url).replace("ADDSHARE2",filelist[0]);
+                    $("#distribution .fullview").append(img_norm_1);
+                    for(j = 0,len=filelist.length; j < len; j++) {
+                        var img_norm_li = $("<li></li>")
+                        var img_norm_a = document.createElement("a");
+                        img_norm_a.setAttribute("id","example2");
+                        img_norm_a.href = "{{url_for('reverse_zMap.image_index',process_id='ADDSHARE1',image='ADDSHARE2')}}".replace("ADDSHARE1",ajax_url).replace("ADDSHARE2",filelist[j]);
+                        var img_norm = document.createElement("img");
+                        img_norm.src = "{{url_for('reverse_zMap.image_index',process_id='ADDSHARE1',image='ADDSHARE2')}}".replace("ADDSHARE1",ajax_url).replace("ADDSHARE2",filelist[j]);
+                        img_norm_li.append(img_norm_a);
+                        img_norm_a.append(img_norm);
+                        $("#distribution .imglist").append(img_norm_li);
+                    }
+                    $(function(){
+                        $("div.albumSlider").albumSlider();
+                    });
+                    $("a#example2").fancybox({
+                        'overlayShow'   : false,
+                        'transitionIn'  : 'elastic',
+                        'transitionOut' : 'elastic'
+                    });
+
+                });*/
+                document.getElementById('task_status').innerHTML="completed";
+            }
+            else{
+                $(status_div).append(para);
+            }
+        }
+        else {
+            update_progress(status_url, status_div);         
+        }
+    
+    });
+}
+</script>
+
+
+{% endblock%}

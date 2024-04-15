@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% block title %}
+    Cluster
+{% endblock %} 
+{% block content %} 
+<div class="container" style="width: 98%;"> 
+ <div class="row"> 
+  <div class="col-md-6 col-md-offset-3"> 
+   <div id="upload_form1"> 
+    <br /> 
+
+    {% with messages = get_flashed_messages() %}
+     	{% if messages %}
+     	<p class="file-error-message" style="display: block;">
+       	{{ messages[0] }}
+     	</p> 
+      {% endif %}
+    {% endwith %}
+     <h1 style="display: block; margin-left: auto; margin-right: auto; font-size: 24px; letter-spacing: 0.18rem; margin-top: 0px; margin-bottom: 0px;">Sample Quality Control</h1>
+     
+     <p>Performing hierarchical clustering and principal component analysis on the z-statistic matrix of samples provides a concise visualization of the overall impact of sample conditions and MS runs.</p>
+     <img src="{{ url_for('lib.static', filename='img/sample_quality_control.png') }}" class="img-fluid" style="max-width: 90%; height: auto;">
+
+     <div class="row">
+        <form action="{{url_for('QC.result')}}" class="form-group" role="form" method="post" id="formID" enctype="multipart/form-data">
+         <div class="control-group" style="margin-bottom: 24px">
+            <label for="input-1" class="control-label">
+              <b>z-statistic file</b><br><p>It is a tab-delimited file with samples in columns and proteins in rows. Example file: <a href="{{url_for('manual.example_data',example_file='sampleQC_example_z_statistic_table.txt')}}">sampleQC_example_z_statistic_table.txt</a></p>
+            </label>
+            <input id="input-1" name="input-1" type="file" accept=".txt" data-show-preview="false" class="file-loading" />
+            <p id="errorBlock1"></p>
+          </div>
+          <div class="control-group" style="margin-bottom: 24px">
+            <label for="input-2" class="control-label">
+              <b>Sample information file</b><br><p>This file has three columns and is tab-delimited. The first row includes the column headers: Sample_id, MS_run, and Sample_condition. Example file: <a href="{{url_for('manual.example_data',example_file='sampleQC_example_sample_info.txt')}}">sampleQC_example_sample_info.txt</a></p>
+            </label>
+            <input id="input-2" name="input-2" type="file" accept=".txt" data-show-preview="false" class="file-loading" />
+            <p id="errorBlock2"></p>
+          </div>
+
+         <button type="reset" class="btn btn-primary"  style="background-color: #CA8115;height: 45px;width: 80px;float: left;margin-left: 50px">Reset</button> 
+         <button type="submit" class="btn btn-primary" style="background-color: #27357e;height: 45px;width: 80px;float: right;margin-right: 20px">Submit</button>
+       </form>
+     </div>
+    <br /> 
+    <br /> 
+   </div> 
+  </div> 
+ </div> 
+</div> 
+<script>
+
+$(document).on('ready', function() {
+  //  $("button[type=reset]").prop('disabled',true);
+   // $("button[type=submit]").prop('disabled',true);
+    $("#input-1").fileinput({
+        showUpload:false,
+        showRemove:false,
+        showClose:false,
+        elErrorContainer: "#errorBlock1"
+
+    });
+    $("#input-2").fileinput({
+        showUpload:false,
+        showRemove:false,
+        showClose:false,
+        elErrorContainer: "#errorBlock2"
+
+    });
+
+    $("input").not("[type=submit]").jqBootstrapValidation();
+});
+
+
+
+</script>  
+{% endblock%} 

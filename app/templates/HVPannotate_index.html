@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+{% block title %}
+    HVPannotate
+{% endblock %} 
+{% block content %} 
+<div class="container" style="width: 98%;"> 
+ <div class="row"> 
+  <div class="col-md-6 col-md-offset-3"> 
+   <div id="upload_form1"> 
+    <br /> 
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+      <p class="file-error-message" style="display: block;">
+        {{ messages[0] }}
+      </p> 
+      {% endif %}
+    {% endwith %}
+     <h1 style="display: block; margin-left: auto; margin-right: auto; font-size: 24px; letter-spacing: 0.18rem; margin-top: 0px; margin-bottom: 0px;">HVPs identification and clustering</h1> 
+     <p>The chi-square statistics derived by zMAP along with the associated numbers of degrees of freedom were summed across MS runs for each protein, giving rise to a p-value that assessed the overall expression variability of the protein. 
+    This functionality is designed to select hypervariable proteins (HVPs) from the output files of zMAP and cluster them to obtain multiple expression signatures. Then, pathway enrichment analysis was conducted on these signatures to reveal biological insights.</p>
+     <img src="{{ url_for('lib.static', filename='img/HVPs_identification_and_clustering_img.png') }}" class="img-fluid" style="max-width: 90%; height: auto;">
+     <div class="row">
+      <form action="{{url_for('HVPannotation.result')}}" class="form-group" role="form" method="post" id="formID" enctype="multipart/form-data">
+       <div class="control-group" style="margin-bottom: 24px">
+          <label for="pvalue_results" class="control-label">
+            <b>Chi-square and p-value file</b><br><p>Output file zmap_chi_square_pvalue.txt from zMAP. Example file: <a href="{{url_for('manual.example_data',example_file='HVP_example_zmap_chi_square_pvalue.txt')}}">HVP_example_zmap_chi_square_pvalue.txt</a></p>  
+          </label>
+          <input id="pvalue_results" name="pvalue_results" type="file" accept=".txt" data-show-preview="false" class="file-loading" />
+          <p id="errorBlock1"></p>
+        </div>
+        <div class="control-group" style="margin-bottom: 24px">
+          <label for="z_statistic_matrix" class="control-label">
+            <b>z-statistic file</b><br><p>Output file z_statistic_table.txt from zMAP. Example file: <a href="{{url_for('manual.example_data',example_file='HVP_example_z_statistic_table.txt')}}">HVP_example_z_statistic_table.txt</a></p>  
+          </label>
+          <input id="z_statistic_matrix" name="z_statistic_matrix" type="file" accept=".txt" data-show-preview="false" class="file-loading" />
+          <p id="errorBlock2"></p>
+        </div>
+        <div class="control-group" style="margin-bottom: 24px">
+          <label for="sample_info" class="control-label">
+            <b>Sample information file</b><br><p>The sample information file is a three-column, tab-delimited file with the first row identifying the columns. The column names are Sample_id, Sample_condition, and MS_run. Example file: <a href="{{url_for('manual.example_data',example_file='HVP_example_sample_info.txt')}}">HVP_example_sample_info.txt</a></p> 
+          </label>
+          <input id="sample_info" name="sample_info" type="file" accept=".txt" data-show-preview="false" class="file-loading" />
+          <p id="errorBlock3"></p>
+        </div>
+        <div class="control-group" style="margin-bottom: 24px"> 
+          <label class="control-label">
+            <b>Number of HVP clusters</b><br><p>HVPs are hierarchically clustered into multiple clusters revealing diverse expression signatures across different sample conditions.</p>
+          </label> 
+          <div class="controls "> 
+          <input type="number" class="form-control" required="" min="2" max="20" name="cluster_number_for_hypervariable" value="15" /> 
+          </div> 
+        </div>
+        <div class="control-group" style="margin-bottom: 24px"> 
+          <label class="control-label">
+            <b>Minimum proteins within each cluster</b><br><p>If the number of proteins within certain clusters falls below the specified minimum, these clusters will be merged into a single cluster labeled as cluster_0. As a result, the final number of clusters may be fewer than what the user initially specified.</p>
+          </label> 
+          <div class="controls "> 
+          <input type="number" class="form-control" required="" min="5" max="50" name="minclustersize" value="20" /> 
+          </div> 
+        </div>
+        <div class="control-group" style="margin-bottom: 24px"> 
+          <label class="control-label">
+            <b>Number of top-ranked DEPs</b><br><p>Top-ranked proteins are selected for heatmap visualization.</p>
+          </label> 
+          <div class="controls "> 
+          <input type="number" class="form-control" required="" min="5" name="top" value="100" /> 
+          </div> 
+        </div>
+        <div class="control-group" style="margin-bottom: 24px"> 
+          <label class="control-label">
+            <b>Number of DEP clusters</b><br><p>Top-ranked DEPs are clustered into multiple clusters based on K-means.</p>
+          </label> 
+          <div class="controls "> 
+          <input type="number" class="form-control" required="" min="5" max="50" name="cluster_number_for_top_proteins" value="20" /> 
+          </div> 
+        </div>
+        <div class="control-group" style="margin-bottom: 24px"> 
+          <label class="control-label"><b>FDR</b><p>(BH-adjusted pvalue cutoff for significance.)</p></label> 
+          <div class="controls "> 
+          <input type="number" class="form-control" required="" step="any" min="0" max="0.2" name="fdr" value="0.05" /> 
+          </div> 
+        </div> 
+
+       <button type="reset" class="btn btn-primary"  style="background-color: #CA8115;height: 45px;width: 80px;float: left;margin-left: 50px">Reset</button> 
+       <button type="submit" class="btn btn-primary" style="background-color: #27357e;height: 45px;width: 80px;float: right;margin-right: 20px">Submit</button>
+     </form>
+     </div>
+    <br /> 
+    <br /> 
+   </div> 
+  </div> 
+ </div> 
+</div> 
+<script>
+
+
+$(document).on('ready', function() {
+  //  $("button[type=reset]").prop('disabled',true);
+   // $("button[type=submit]").prop('disabled',true);
+    $("#pvalue_results").fileinput({
+        showUpload:false,
+        showRemove:false,
+        showClose:false,
+        elErrorContainer: "#errorBlock1"
+
+    }).on("filebatchselected",function(event,files){
+            $(this).fileinput("upload");
+    });
+    $("#z_statistic_matrix").fileinput({
+        showUpload:false,
+        showRemove:false,
+        showClose:false,
+        elErrorContainer: "#errorBlock2"
+
+    }).on("filebatchselected",function(event,files){
+            $(this).fileinput("upload");
+    });
+    $("#sample_info").fileinput({
+        showUpload:false,
+        showRemove:false,
+        showClose:false,
+        elErrorContainer: "#errorBlock3"
+
+    }).on("filebatchselected",function(event,files){
+            $(this).fileinput("upload");
+    });
+
+    $("input").not("[type=submit]").jqBootstrapValidation();
+});
+
+
+
+</script>  
+{% endblock%} 
